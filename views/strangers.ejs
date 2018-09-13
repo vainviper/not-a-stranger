@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+<h1>Strangers, Friends and Foes</h1>
+
+<a href="/new">New Encounter</a>
+<p><%= stranger %></p>
+<% stranger.forEach(function(stranger){ %>
+    <div>
+        <ul>
+            <li><a href="/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></li>
+            <li><%= stranger.meetArea %></li>
+            <li><%= stranger.occupation %></li>
+            <li><%= stranger.age %></li>
+            <li><%= stranger.bio %></li>
+        </ul>
+        <button>Edit</button>
+        <button>Delete</button>
+    </div>
+<% }) %>
+
+<% include ./partials/footer %>
