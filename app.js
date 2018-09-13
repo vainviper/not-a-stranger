@@ -43,7 +43,7 @@ app.post("/strangers", (req, res) => {
         age = req.body.age,
         bio = req.body.bio,
         newindividual = {firstName: firstName, lastName: lastName, meetArea: meetArea, occupation: occupation, age: age, bio: bio};
-    Stranger.create(newindividual, (err, individual) => {
+        Stranger.create(newindividual, (err, individual) => {
         if(err) return handleError(err);
         res.redirect("/strangers");
     });
@@ -57,6 +57,28 @@ app.get("/strangers/:id", (req, res) => {
         } else {
             res.render("show", {stranger:foundStranger});
         }
+    });
+});
+
+//EDIT
+app.get("/strangers/:id/edit", (req, res) => {
+    Stranger.findById(req.params.id, (err,foundStranger) => {
+        if(err) return handleError(err);
+        res.render("edit", {stranger: foundStranger});
+    });
+});
+
+app.put("/strangers/:id", (req,res) => {
+    Stranger.findByIdAndUpdate(req.params.id, req.body.stranger, function(err, updatedStranger) {
+        if(err) return handleError(err);
+        res.redirect("/strangers/" + req.params.id);
+    });
+});
+
+app.delete("/strangers/:id", (req, res) => {
+    Stranger.findByIdAndRemove(req.params.id, function (err, destroyedStranger) {
+        if(err) return handleError(err);
+        res.redirect("/strangers");
     });
 });
 

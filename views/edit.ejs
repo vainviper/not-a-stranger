@@ -1,0 +1,14 @@
+<% include ./partials/header %>
+<h1>Edit <%= stranger.firstName + " " + stranger.lastName %></h1>
+
+<form action="/strangers/<%= stranger._id %>/?_method=PUT" method="POST">
+<input type="text" name="stranger[firstName]" value="<%= stranger.firstName %>">
+<input type="text" name="stranger[lastName]" value="<%= stranger.lastName %>">
+<input type="text" name="stranger[meetArea]" value="<%= stranger.meetArea %>">
+<input type="text" name="stranger[occupation]" value="<%= stranger.occupation %>">
+<input type="number" name="stranger[age]" value="<%= stranger.age %>">
+<input type="text" name="stranger[bio]" value="<%= stranger.bio %>">
+<button>Submit</button>
+</form>
+
+<% include ./partials/footer %>
