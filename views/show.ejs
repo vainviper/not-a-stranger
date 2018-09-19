@@ -7,11 +7,15 @@
         <li><%= stranger.occupation %></li>
         <li><%= stranger.age %></li>
         <li><%= stranger.bio %></li>
+        <li><%= stranger.author %></li>
+        <li><%= currentUser %></li>
     </ul>
-    <a class="btn btn-success btn-sm" href="/strangers/<%= stranger._id %>/edit">Edit</a>
-    <form action="/strangers/<%= stranger._id %>/?_method=DELETE" method="POST">
-        <button class="btn btn-warning btn-sm" >Delete</button>
-    </form>
+    <% if (currentUser && stranger.author.id.equals(currentUser._id)) { %>
+        <a class="btn btn-success btn-sm" href="/strangers/<%= stranger._id %>/edit">Edit</a>
+        <form action="/strangers/<%= stranger._id %>/?_method=DELETE" method="POST">
+            <button class="btn btn-warning btn-sm" >Delete</button>
+        </form>
+    <% } %>
 </div>
 
 <% include ./partials/footer %>

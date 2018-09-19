@@ -1,6 +1,7 @@
 <% include ./partials/header %>
 
 <h3>Main List</h3>
+
 <table class="table">
     <tr>
         <th>Name</th>
@@ -12,8 +13,8 @@
         <tr>
             <td><a href="/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
             <td><%= stranger.meetArea %></td>
+            <td><%= stranger.occupation %></td>
             <td><%= stranger.age %></td>
-            <td><%= stranger.bio %></td>
         </tr>
     <% }) %>
 </table>
