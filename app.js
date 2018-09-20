@@ -3,7 +3,6 @@ const   express         = require('express'),
         mongoose        = require('mongoose'),
         methodOverride  = require('method-override'),
         flash           = require('connect-flash'),
-        uuid            = require(`uuid/v4`),
         session         = require(`express-session`),
         bodyParser      = require('body-parser'),
         passport        = require('passport'),
@@ -22,7 +21,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 
 app.use(methodOverride('_method'));
-app.use('/static', express.static('public'));
+app.use(express.static(__dirname + "/public"));
 app.use(flash());
 // seed();
 

@@ -4,15 +4,21 @@ const   express     = require('express'),
         Stranger    = require('../models/individual');
 
 // INDEX
+let sortBy = {firstName: 1};
 router.get('/strangers', middleware.isLoggedIn, (req, res) => {
-    Stranger.find({'author.id': req.user.id}, (err,foundStranger) => {
-        if(err){
-            req.flash('error', 'Item could not be found');
-            res.redirect('back');
-        } else {
-            res.render('strangers', {stranger:foundStranger});
-        }
-    });
+    Stranger.
+        find({
+            'author.id': req.user.id
+        }).
+        sort(sortBy).
+        exec((err, foundStranger) => {
+            if(err){
+                req.flash('error', 'Item could not be found');
+                res.redirect('back');
+            } else {
+                res.render('strangers', {stranger:foundStranger});
+            }
+        });
 });
 
 // NEW
