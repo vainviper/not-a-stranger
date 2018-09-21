@@ -1,99 +1,111 @@
 const   express     = require('express'),
         router      = express.Router(),
         middleware  = require('../middleware/'),
-        Stranger    = require('../models/individual');
-
-// INDEX
-let sortBy = {firstName: 1};
-router.get('/strangers', middleware.isLoggedIn, (req, res) => {
-    Stranger.
-        find({
-            'author.id': req.user.id
-        }).
-        sort(sortBy).
-        exec((err, foundStranger) => {
-            if(err){
-                req.flash('error', 'Item could not be found');
-                res.redirect('back');
-            } else {
-                res.render('strangers', {stranger:foundStranger});
-            }
-        });
-});
+        Stranger    = require('../models/individual'),
+        List        = require('../models/dblist');
 
 // NEW
-router.get("/new", middleware.isLoggedIn, (req, res) => {
-    res.render("new");
+router.get("/lists/:id/strangers/new", middleware.isLoggedIn, (req, res) => {
+    List.findById(req.params.id, (err, foundList) => {
+        if(err) {
+            req.flash('error', 'List not found');
+            res.redirect('back');
+        } else {
+            res.render('strangers/new', {list: foundList});
+        }
+    });
 });
 
-//CREATE
-router.post("/strangers", middleware.isLoggedIn, (req, res) => {
+// CREATE
+router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
     let firstName = req.body.firstName,
         lastName = req.body.lastName,
+        race = req.body.race,
+        nation = req.body.nation,
         meetArea = req.body.meetArea,
         occupation = req.body.occupation,
-        age = req.body.age,
+        born = (req.body.currentAge - req.body.age),
         bio = req.body.bio,
         author = {
             id: req.user.id,
             username: req.user.username
         },
-        newindividual = {firstName: firstName, lastName: lastName, meetArea: meetArea, occupation: occupation, age: age, bio: bio, author: author};
+        list = {
+            id: req.params.id
+        },
+        newindividual = {firstName: firstName, lastName: lastName, race: race, nation: nation, meetArea: meetArea, occupation: occupation, born: born, bio: bio, author: author, list: list};
+        console.log(newindividual);
         Stranger.create(newindividual, (err, individual) => {
         if(err) {
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
             req.flash('success', 'Stranger Created');
-            res.redirect("/strangers"); 
+            res.redirect("/lists/" + req.params.id); 
         }
     });
 });
 
 //SHOW
-router.get("/strangers/:id", middleware.isLoggedIn, (req, res) => {
-    Stranger.findById(req.params.id, function(err, foundStranger){
+router.get("/lists/:id/strangers/:stranger_id", middleware.isLoggedIn, (req, res) => {
+    List.findById(req.params.id, (err, foundList) => {
         if(err) {
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
-            res.render("show", {stranger:foundStranger});
+            Stranger.findById(req.params.stranger_id, function(err, foundStranger){
+                if(err) {
+                    req.flash('error', 'Something went wrong');
+                    res.redirect('back');
+                } else {
+                    res.render("strangers/show", {list: foundList, stranger:foundStranger});
+                }
+            });            
         }
     });
 });
 
 //EDIT
-router.get("/strangers/:id/edit", middleware.checkDbItemOwnership, (req, res) => {
-    Stranger.findById(req.params.id, (err,foundStranger) => {
+router.get("/lists/:id/strangers/:stranger_id/edit", middleware.checkDbItemOwnership, (req, res) => {
+    List.findById(req.params.id, (err, foundList) => {
         if(err) {
             req.flash('error', 'Something went wrong');
-            res.redirect('back');
+            res.redirect('back');           
         } else {
-            res.render("edit", {stranger: foundStranger});
+            Stranger.findById(req.params.stranger_id, (err,foundStranger) => {
+                if(err) {
+                    req.flash('error', 'Something went wrong');
+                    res.redirect('back');
+                } else {
+                    res.render("strangers/edit", {list: foundList, stranger: foundStranger});
+                }
+            });   
         }
-    });
+    })
 });
 
-router.put("/strangers/:id", middleware.checkDbItemOwnership, (req,res) => {
-    Stranger.findOneAndUpdate(req.params.id, req.body.stranger, function(err, updatedStranger) {
+router.put("/lists/:id/strangers/:stranger_id", middleware.checkDbItemOwnership, (req,res) => {
+    let born = (req.body.stranger.currentAge - req.body.stranger.age);
+    req.body.stranger.born = born;
+    Stranger.findByIdAndUpdate(req.params.stranger_id, req.body.stranger, function(err, updatedStranger) {
         if(err) {
             req.flash('error', 'Something went wrong');
-            res.redirect('back');;
+            res.redirect('lists/' + req.params.id);
         } else {
             req.flash('success', 'Stranger Updated');
-            res.redirect("/strangers/" + req.params.id);
+            res.redirect("/lists/" + req.params.id + "/strangers/" + req.params.stranger_id);
         }
     });
 });
 
-router.delete("/strangers/:id", middleware.checkDbItemOwnership, (req, res) => {
-    Stranger.findOneAndDelete(req.params.id, function (err, destroyedStranger) {
+router.delete("/lists/:id/strangers/:stranger_id", middleware.checkDbItemOwnership, (req, res) => {
+    Stranger.findByIdAndDelete(req.params.stranger_id, function (err, destroyedStranger) {
         if(err) {
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
             req.flash('success', 'Stranger Deleted');
-            res.redirect("/strangers");
+            res.redirect("/lists/" + req.params.id);
         }
     });
 });

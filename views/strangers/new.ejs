@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="centeredStrangerDiv">
+        <h1 class="display-4">Create New Stranger For <%= list.name %></h1>
+        <form action="/lists/<%= list._id %>/strangers" method="POST" id="stranger-new">
+            <input class="form-control" type="text" name="firstName" placeholder="first name">
+            <input class="form-control" type="text" name="lastName" placeholder="last name">
+            <input class="form-control" type="text" name="race" placeholder="race">
+            <input class="form-control" type="text" name="nation" placeholder="nationality">
+            <input class="form-control" type="text" name="meetArea" placeholder="place of first met">
+            <input class="form-control" type="text" name="occupation" placeholder="occupation">
+            <input class="form-control" type="number" name="age" placeholder="age">
+            <input type="hidden" type="number" name="currentAge" value="<%= list.currentAge %>">
+            <textarea class="form-control correctAlignment" rows="4" cols="50" name="bio" form="stranger-new">enter bio</textarea>
+            <button class="btn btn-lg btn-success btn-block correctAlignment">Create Stranger</button>
+        </form>
+        <a class="btn btn-sm btn-info left-align-button-2" href="/lists/<%= list._id %>/">Back</a>
+    </div>
+</div> 
+
+<% include ../partials/footer %>

@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="centeredDiv" style="margin: 20px auto;">
+        <h5 class="display-4"><%= stranger.firstName + " " + stranger.lastName%></h5>
+        <table class="table">
+            <tr>
+                <th>Race:</th>
+                <td><%= stranger.race %></td>
+            </tr>
+            <tr>
+                <th>Nationality:</th>
+                <td><%= stranger.nation %></td>
+            </tr>
+            <tr>
+                <th>First met:</th>
+                <td><%= stranger.meetArea %></td>
+            </tr>
+            <tr>
+                <th>Occupation:</th>
+                <td><%= stranger.occupation %></td>
+            </tr>
+            <tr>
+                <th>Age:</th>
+                <td><%= list.currentAge - stranger.born %></td>
+            </tr>
+            <tr>
+                <th>Bio:</th>
+                <td><%= stranger.bio %></td>
+            </tr>
+        </table>
+        <a class="btn btn-sm btn-info left-align-button" href="/lists/<%= list._id %>/">Back</a>
+        <br>
+
+        <% if (currentUser && stranger.author.id.equals(currentUser._id)) { %>
+            <a class="btn btn-success btn-sm" href="/lists/<%= list._id %>/strangers/<%= stranger._id %>/edit">Edit</a>
+            <form class="btn-inline" action="/lists/<%= list._id %>/strangers/<%= stranger._id %>/?_method=DELETE" method="POST">
+                <button class="btn btn-warning btn-sm" >Delete</button>
+            </form>
+        <% } %>         
+    </div>
+</div>
+ 
+<% include ../partials/footer %>

@@ -6,14 +6,22 @@ const individualSchema = new Schema({
     lastName: String,
     meetArea: String,
     occupation: String,
-    age: String,
+    born: Number,
     bio: String,
+    race: String,
+    nation: String,
     author: {
         id: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
         username: String
+    },
+    list: {
+        id: {
+            type: Schema.Types.ObjectId,
+            ref: 'List'
+        }
     }
 });
 

@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="centeredStrangerDiv">
+        <h1 class="display-4">Edit <%= stranger.firstName + " " + stranger.lastName %></h1>
+        <form action="/lists/<%= list._id %>/strangers/<%= stranger._id %>/?_method=PUT" method="POST" id="stranger-edit">
+            <input class="form-control" type="text" name="stranger[firstName]" value="<%= stranger.firstName %>">
+            <input class="form-control" type="text" name="stranger[lastName]" value="<%= stranger.lastName %>">
+            <input class="form-control" type="text" name="stranger[race]" value="<%= stranger.race %>">
+            <input class="form-control" type="text" name="stranger[nation]" value="<%= stranger.nation %>">
+            <input class="form-control" type="text" name="stranger[meetArea]" value="<%= stranger.meetArea %>">
+            <input class="form-control" type="text" name="stranger[occupation]" value="<%= stranger.occupation %>">
+            <input class="form-control" type="number" name="stranger[age]" value="<%= list.currentAge - stranger.born %>">
+            <input type="hidden" type="number" name="stranger[currentAge]" value="<%= list.currentAge %>">
+            <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[bio]" form="stranger-edit"><%= stranger.bio %></textarea>
+            <button class="btn btn-lg btn-success btn-block correctAlignment">Edit <%= stranger.firstName + " " + stranger.lastName %></button>
+        </form>
+        <a class="btn btn-sm btn-info left-align-button-2" href="/lists/<%= list._id %>/">Back</a>
+    </div>
+</div> 
+
+<% include ../partials/footer %>

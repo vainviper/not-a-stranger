@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="centeredDiv">
+        <h1 class="display-4">Create New Collection</h1>
+        <form action="/lists" method="POST">
+            <input class="form-control" type="text" name="name" placeholder="name">
+            <input class="form-control" type="number" name="currentAge" placeholder="current age">
+            <input class="form-control" type="text" name="description" placeholder="description">
+            <button class="btn btn-lg btn-success btn-block">Create Collection</button>
+        </form>
+        <a class="btn btn-sm btn-info left-align-button" href="/lists">Back</a>
+    </div>
+</div>
+
+<% include ../partials/footer %>

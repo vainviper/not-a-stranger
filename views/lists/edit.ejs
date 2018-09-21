@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="centeredDiv">
+        <h1 class="display-4">Edit <%= list.name %></h1>
+        <form action="/lists/<%= list._id %>/?_method=PUT" method="POST">
+            <input class="form-control" type="text" name="list[name]" value="<%= list.name %>">
+            <input class="form-control" type="number" name="list[currentAge]" value="<%= list.currentAge %>">
+            <input class="form-control" type="text" name="list[description]" value="<%= list.description %>">
+            <button class="btn btn-lg btn-success btn-block">Edit Collection</button>
+        </form>
+        <a class="btn btn-sm btn-info left-align-button" href="/lists">Back</a>
+    </div>
+</div>
+
+<% include ../partials/footer %>

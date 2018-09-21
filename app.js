@@ -8,11 +8,13 @@ const   express         = require('express'),
         passport        = require('passport'),
         PassportLocal   = require('passport-local').Strategy,
         Stranger        = require('./models/individual'),
+        List            = require('./models/dblist'),
         User            = require('./models/user'),
         middleware      = require("./middleware/"),
         seed            = require('./seed');
 
-const   strangerRoutes  = require('./routes/strangers'),
+const   listRoutes      = require('./routes/lists'),
+        strangerRoutes  = require('./routes/strangers'),
         authRoutes      = require('./routes/index');
 
 mongoose.connect("mongodb://localhost/stranger_db", {useNewUrlParser: true});
@@ -23,7 +25,9 @@ app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
-// seed();
+// seed.deleteList();
+// seed.deleteStranger();
+// seed.deleteUser();
 
 //PASSPORT CONFIGURATION
 app.use(session({
@@ -40,6 +44,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(middleware.currentUser);
 
+app.use(listRoutes);
 app.use(strangerRoutes);
 app.use(authRoutes);
 

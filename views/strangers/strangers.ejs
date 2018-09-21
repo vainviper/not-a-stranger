@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1 class="display-4"><%= list.name %></h1>
+    <a class="btn btn-success btn-sm new-stranger-button" href="/lists/<%= list._id %>/strangers/new">Create Stranger</a>
+    <table class="table sortable">
+        <tr>
+            <th>Name</th>
+            <th>First Encounter</th>
+            <th>Occupation</th>
+            <th>Age</th>
+        </tr>
+        <% stranger.forEach(function(stranger){ %>
+            <tr>
+                <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
+                <td><%= stranger.meetArea %></td>
+                <td><%= stranger.occupation %></td>
+                <td><%= list.currentAge - stranger.born %></td>
+            </tr>
+        <% }) %>
+    </table>
+    <a class="btn btn-sm btn-info left-align-button" href="/lists">Back</a>
+</div>
+
+<% include ../partials/footer %> 

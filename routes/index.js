@@ -22,7 +22,7 @@ router.post("/register", (req, res) => {
         } else {
             passport.authenticate("local")(req, res, () => {
                 req.flash('success', 'User ' + req.body.username + ' has been created');
-                res.redirect("/strangers");
+                res.redirect("/lists");
             });
         }
     });
@@ -34,8 +34,9 @@ router.get("/login", (req, res) => {
 
 router.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/strangers",
-        failureRedirect: "/login"
+        successRedirect: "/lists",
+        failureRedirect: "/login",
+        failureFlash: true
     }));
 
 router.get("/logout", (req, res) => {
