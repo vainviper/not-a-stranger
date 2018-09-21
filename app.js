@@ -17,8 +17,8 @@ const   listRoutes      = require('./routes/lists'),
         strangerRoutes  = require('./routes/strangers'),
         authRoutes      = require('./routes/index');
 
-mongoose.connect(process.env.STRANGERDBURL, {useNewUrlParser: true});
-// mongoose.connect("mongodb://vainviper:Nautilus11@ds211613.mlab.com:11613/stranger_db", {useNewUrlParser: true});
+const url = process.env.STRANGERDBURL || "mongodb://localhost/stranger_db";
+mongoose.connect(url, {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
@@ -52,3 +52,6 @@ app.use(authRoutes);
 app.listen(process.env.PORT, process.env.IP, () => {
     console.log('Server for Not A Stranger has started');
 });
+// app.listen(3000, () => {
+//     console.log('Server for Not A Stranger has started');
+// });
