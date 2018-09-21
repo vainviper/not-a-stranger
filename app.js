@@ -49,6 +49,6 @@ app.use(listRoutes);
 app.use(strangerRoutes);
 app.use(authRoutes);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, process.env.IP, () => {
     console.log('Server for Not A Stranger has started');
 });
