@@ -17,7 +17,8 @@ const   listRoutes      = require('./routes/lists'),
         strangerRoutes  = require('./routes/strangers'),
         authRoutes      = require('./routes/index');
 
-mongoose.connect("mongodb://localhost/stranger_db", {useNewUrlParser: true});
+// mongoose.connect("mongodb://localhost/stranger_db", {useNewUrlParser: true});
+mongoose.connect("mongodb://vainviper:Nautilus11@ds211613.mlab.com:11613/stranger_db", {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
