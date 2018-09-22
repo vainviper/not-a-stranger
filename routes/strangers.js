@@ -11,7 +11,7 @@ router.get("/lists/:id/strangers/new", middleware.isLoggedIn, (req, res) => {
             req.flash('error', 'List not found');
             res.redirect('back');
         } else {
-            res.render('strangers/new', {list: foundList});
+            res.render('strangers/new', {list: foundList, stranger: null});
         }
     });
 });

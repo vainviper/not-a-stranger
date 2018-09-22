@@ -3,7 +3,11 @@
 <div class="container">
     <div class="jumbotron">
         <h1>NOT A STRANGER</h1>
-        <a class= "text-muted" href="/login">Sign In Or Register To Continue</a>
+        <% if(currentUser) { %>
+            <a class= "text-muted" href="/lists">Go To Collections</a>
+        <% } else { %>
+            <a class= "text-muted" href="/login">Sign In Or Register To Continue</a>
+        <% }%>
     </div>
 </div>
 

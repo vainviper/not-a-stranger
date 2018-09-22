@@ -6,16 +6,16 @@
     <table class="table sortable">
         <tr>
             <th>Name</th>
-            <th>First Encounter</th>
-            <th>Occupation</th>
+            <th>Race</th>
             <th>Age</th>
+            <th>Occupation</th>
         </tr>
         <% stranger.forEach(function(stranger){ %>
             <tr>
                 <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
-                <td><%= stranger.meetArea %></td>
-                <td><%= stranger.occupation %></td>
+                <td><%= stranger.race %></td>
                 <td><%= list.currentAge - stranger.born %></td>
+                <td><%= stranger.occupation %></td>
             </tr>
         <% }) %>
     </table>
