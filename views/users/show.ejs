@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="centeredDiv" style="margin: 20px auto;">
+        <h5 class="display-4"><%= user.username %></h5>
+        <table class="table">
+            <tr>
+                <th>id:</th>
+                <td><%= user._id %></td>
+            </tr>
+            <tr>
+                <th>isAdmin:</th>
+                <td><%= user.isAdmin %></td>
+            </tr>
+        </table>
+        <a class="btn btn-sm btn-info left-align-button" href="/users">Back</a>
+        <br>
+            <a class="btn btn-success btn-sm" href="/users/<%= user._id %>/edit">Edit</a>
+            <form class="btn-inline" action="/users/<%= user._id %>/?_method=DELETE" method="POST">
+                <button class="btn btn-warning btn-sm" >Delete</button>
+            </form>       
+    </div>
+</div>
+ 
+<% include ../partials/footer %>

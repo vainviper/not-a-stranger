@@ -5,7 +5,7 @@ const   express     = require('express'),
         Stranger    = require('../models/individual');
 
 // INDEX
-router.get('/lists', middleware.isLoggedIn, (req, res) => {
+router.get('/lists',  (req, res) => {
     List.
         find({
             'author.id': req.user.id
@@ -37,7 +37,7 @@ router.post('/lists',middleware.isLoggedIn, (req, res) => {
     newList = {name: name, description: description, currentAge: currentAge, author: author};
     List.create(newList, (err, list) => {
         if(err) {
-            req.flash('error', 'Something went wrong');
+            req.flash('error', 'LIST CREATE Something went wrong');
             res.redirect('back');
         } else {
             req.flash('success', 'List Created');
@@ -50,7 +50,7 @@ router.post('/lists',middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
     List.findById(req.params.id, function(err, foundList){
         if(err) {
-            req.flash('error', 'Something went wrong');
+            req.flash('error', 'LIST SHOW Something went wrong');
             res.redirect('back');
         } else {
             Stranger.
@@ -59,7 +59,7 @@ router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
                 }).
                 exec((err, foundStranger) => {
                     if(err) {
-                        req.flash('error', ' LISTS SHOW Item could not be found');
+                        req.flash('error', 'LIST SHOW Item could not be found');
                         res.redirect('back');
                     } else {
                         res.render('strangers/strangers', {list:foundList,stranger:foundStranger});
@@ -73,7 +73,7 @@ router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id/edit", middleware.checkListItemOwnership, (req, res) => {
     List.findById(req.params.id, (err,foundList) => {
         if(err) {
-            req.flash('error', 'Something went wrong');
+            req.flash('error', 'LIST EDIT Something went wrong');
             res.redirect('back');
         } else {
             res.render("lists/edit", {list: foundList});
@@ -85,10 +85,9 @@ router.get("/lists/:id/edit", middleware.checkListItemOwnership, (req, res) => {
 router.put("/lists/:id", middleware.checkListItemOwnership, (req,res) => {
     List.findByIdAndUpdate(req.params.id, req.body.list, function(err, updatedList) {
         if(err) {
-            req.flash('error', 'Something went wrong');
+            req.flash('error', 'LIST UPDATE Something went wrong');
             res.redirect('/lists');
         } else {
-            console.log(updatedList);
             req.flash('success', 'List Updated');
             res.redirect("/lists");
         }
@@ -98,7 +97,7 @@ router.put("/lists/:id", middleware.checkListItemOwnership, (req,res) => {
 router.delete('/lists/:id', middleware.checkListItemOwnership, (req, res) => {
     List.findByIdAndDelete(req.params.id, (err, deletedList) => {
         if(err) {
-            req.flash('error', 'Something went wrong');
+            req.flash('error', 'LIST DELETE Something went wrong');
             res.redirect('back');
         } else {
             req.flash('success', 'List Deleted');

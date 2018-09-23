@@ -11,6 +11,14 @@ module.exports = {
             res.redirect('back');
         }
     },
+    isAdmin: function (req, res, next) {
+        if(req.user.isAdmin) {
+            return next();
+        } else {
+            req.flash('error', 'You must a administrator to do that')
+            res.redirect('back')
+        }
+    },
     currentUser: function (req, res, next) {
         res.locals.currentUser = req.user;
         res.locals.error = req.flash('error');
@@ -24,7 +32,7 @@ module.exports = {
                     req.flash('error', 'MW STRANGER Item could not be found');
                     res.redirect('back');
                 } else {
-                    if(foundStranger.author.id.equals(req.user._id)) {
+                    if(foundStranger.author.id.equals(req.user._id) || req.user.isAdmin) {
                         next();
                     } else {
                         req.flash("error", "You don't own that item");
@@ -44,7 +52,7 @@ module.exports = {
                     req.flash('error', 'MD LIST Item could not be found');
                     res.redirect('back');
                 } else {
-                    if(foundList.author.id.equals(req.user._id)) {
+                    if(foundList.author.id.equals(req.user._id) || req.user.isAdmin) {
                         next();
                     } else {
                         req.flash("error", "You don't own that item");

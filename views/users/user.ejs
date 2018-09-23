@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1 class="display-4">Users</h1>
+    <a class="btn btn-success btn-sm new-stranger-button" href="#">Create User</a>
+    <table class="table sortable">
+        <tr>
+            <th>Username</th>
+            <th>id</th>
+            <th>isAdmin</th>
+        </tr>
+        <% user.forEach(function(user){ %>
+            <tr>
+                <td><a href="/users/<%= user._id %>"><strong><%= user.username %></strong></a></td>
+                <td> <%= user._id %></td>
+                <td> <%= user.isAdmin %></td>
+            </tr>
+        <% }) %>
+    </table>
+    <a class="btn btn-sm btn-info left-align-button" href="/lists">Back</a>
+</div>
+
+<% include ../partials/footer %> 

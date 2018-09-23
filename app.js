@@ -15,7 +15,8 @@ const   express         = require('express'),
 
 const   listRoutes      = require('./routes/lists'),
         strangerRoutes  = require('./routes/strangers'),
-        authRoutes      = require('./routes/index');
+        authRoutes      = require('./routes/index'),
+        adminRoutes     = require('./routes/admin');
 
 const url = process.env.STRANGERDBURL || "mongodb://localhost/stranger_db";
 mongoose.connect(url, {useNewUrlParser: true});
@@ -45,14 +46,15 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(middleware.currentUser);
 
+app.use(adminRoutes);
 app.use(listRoutes);
 app.use(strangerRoutes);
 app.use(authRoutes);
 
-app.listen(process.env.PORT, process.env.IP, () => {
-    console.log('Server for Not A Stranger has started');
-});
-
-// app.listen(3000, () => {
+// app.listen(process.env.PORT, process.env.IP, () => {
 //     console.log('Server for Not A Stranger has started');
 // });
+
+app.listen(3000, () => {
+    console.log('Server for Not A Stranger has started');
+});
