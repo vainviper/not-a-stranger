@@ -6,12 +6,18 @@
         <tr>
             <th class="cell-width-30">Name</th>
             <th class="cell-width-40">Description</th>
+            <% if(currentUser.isAdmin) { %>
+                <th>Owner</th>
+            <% } %>
             <th></th>
         </tr>
         <% list.forEach(function(list){ %>
             <tr>
                 <td><a href="/lists/<%= list._id %>"><%= list.name %></a></td>
                 <td><%= list.description %></td>
+                <% if(currentUser.isAdmin) { %>
+                    <th><%= list.author.username %></th>
+                <% } %>
                 <td>
                     <a class="btn btn-warning btn-sm" href="/lists/<%= list._id %>/edit">Edit</a>
                     <form class="btn-inline" action="/lists/<%= list._id %>/?_method=DELETE" method="POST">
