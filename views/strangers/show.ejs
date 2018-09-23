@@ -33,12 +33,24 @@
         <br>
 
         <% if (currentUser && stranger.author.id.equals(currentUser._id)) { %>
-            <a class="btn btn-success btn-sm" href="/lists/<%= list._id %>/strangers/<%= stranger._id %>/edit">Edit</a>
-            <form class="btn-inline" action="/lists/<%= list._id %>/strangers/<%= stranger._id %>/?_method=DELETE" method="POST">
-                <button class="btn btn-warning btn-sm" >Delete</button>
-            </form>
+            <a class="btn btn-warning btn-sm" href="/lists/<%= list._id %>/strangers/<%= stranger._id %>/edit">Edit</a>
+            <a class="btn btn-danger btn-sm showButton" href="#">Delete</a>
+
+            <div class="confirmForm hidden">
+                <form id="form">
+                    <input class="form-control-sm" type="text" name="confirmText" aria-describedby="textConfirm">
+                    <small id="textConfirm" class="form-text text-muted">
+                    Type First Name To Confirm
+                    </small>
+                    <input type="hidden" name="equals" value="<%= stranger.firstName %>">
+                </form>
+                <form class="btn-inline hidden deleteButton" action="/lists/<%= list._id %>/strangers/<%= stranger._id %>/?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-sm confirmDelete" >Confirm</button>
+                </form>
+            </div>
         <% } %>         
     </div>
 </div>
- 
+
+<script src="/scripts/confirm.js"></script>
 <% include ../partials/footer %>

@@ -34,7 +34,6 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
             id: req.params.id
         },
         newindividual = {firstName: firstName, lastName: lastName, race: race, nation: nation, meetArea: meetArea, occupation: occupation, born: born, bio: bio, author: author, list: list};
-        console.log(newindividual);
         Stranger.create(newindividual, (err, individual) => {
         if(err) {
             req.flash('error', 'Something went wrong');

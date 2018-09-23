@@ -18,6 +18,7 @@ router.get('/lists/all',middleware.isLoggedIn, middleware.isAdmin, (req, res) =>
     });
 });
 
+// SHOW
 router.get('/users', middleware.isLoggedIn, middleware.isAdmin, (req, res) => {
     User.find({}, (err, foundUser) => {
         if(err) {
@@ -53,6 +54,7 @@ router.get('/users/:id/edit', middleware.isLoggedIn, middleware.isAdmin, (req, r
     });
 });
 
+// UPDATE
 router.put('/users/:id', middleware.isLoggedIn, middleware.isAdmin, (req, res) => {
     User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
         if(err) {
@@ -65,6 +67,7 @@ router.put('/users/:id', middleware.isLoggedIn, middleware.isAdmin, (req, res) =
     });
 });
 
+// DELETE
 router.delete('/users/:id', middleware.isLoggedIn, middleware.isAdmin, (req, res) => {
     User.findByIdAndRemove(req.params.id, (err, removedUser) => {
         if(err) {
