@@ -37,6 +37,7 @@ table.sortable thead {
 }
 .correctAlignment {
     margin-left: 5px;
+    margin-bottom: 5px;
 }
 .left-align-button {
     margin: 5px 0;

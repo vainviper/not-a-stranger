@@ -5,6 +5,7 @@
     <table class="table sortable">
         <tr>
             <th class="cell-width-30">Name</th>
+            <th>Year</th>
             <th class="cell-width-40">Description</th>
             <% if(currentUser.isAdmin) { %>
                 <th>Owner</th>
@@ -14,6 +15,7 @@
         <% list.forEach(function(list){ %>
             <tr>
                 <td><a href="/lists/<%= list._id %>"><%= list.name %></a></td>
+                <td><%= list.currentAge %></td>
                 <td><%= list.description %></td>
                 <% if(currentUser.isAdmin) { %>
                     <th><%= list.author.username %></th>
