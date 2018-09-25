@@ -19,7 +19,11 @@
             </tr>
             <% } %>
         </table>
-        <a class="btn btn-sm btn-info left-align-button" href="/users">Back</a>
+        <% if(currentUser.isAdmin) { %>
+            <a class="btn btn-sm btn-info left-align-button" href="/users">Back</a>
+        <% } else { %>
+            <a class="btn btn-sm btn-info left-align-button" href="/lists">Back To Lists</a>
+        <% } %>
         <br>
 
         <% if (currentUser && user._id.equals(currentUser._id) || currentUser.isAdmin) { %>
