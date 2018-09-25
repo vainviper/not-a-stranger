@@ -10,6 +10,7 @@ const individualSchema = new Schema({
     bio: String,
     race: String,
     nation: String,
+    images: [],
     author: {
         id: {
             type: Schema.Types.ObjectId,

@@ -4,8 +4,14 @@
     <div class="centeredDiv">
         <h1 class="display-3">LOGIN</h1>
         <form action="/login" method="POST">
-            <input class="form-control" type="text" name="username" placeholder="username">
-            <input class="form-control" type="password" name="password" placeholder="password">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" class="form-control" type="text" name="username" placeholder="enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" class="form-control" type="password" name="password" placeholder="enter password">
+            </div>
             <button class="btn btn-lg btn-success btn-block correctAlignment">Login</button>
         </form>
         <p class="text-center">New user? <a href="/register">Register to continue</a></p>
