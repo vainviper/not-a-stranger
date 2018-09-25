@@ -5,10 +5,14 @@
         <h5 class="display-4"><%= user.username %></h5>
         <table class="table">
             <tr>
+                <th>Email:</th>
+                <td><%= user.email %></td>
+            </tr>
+            <% if(currentUser.isAdmin) { %>
+            <tr>
                 <th>id:</th>
                 <td><%= user._id %></td>
             </tr>
-            <% if(currentUser.isAdmin) { %>
             <tr>
                 <th>isAdmin:</th>
                 <td><%= user.isAdmin %></td>
