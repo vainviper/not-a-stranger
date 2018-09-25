@@ -15,7 +15,8 @@ const   listRoutes      = require('./routes/lists'),
         strangerRoutes  = require('./routes/strangers'),
         authRoutes      = require('./routes/index'),
         adminRoutes     = require('./routes/admin'),
-        userRoutes      = require('./routes/users');
+        userRoutes      = require('./routes/users'),
+        resetRoutes     = require('./routes/reset');
 
 const url = process.env.STRANGERDBURL || "mongodb://localhost/stranger_db";
 mongoose.connect(url, {useNewUrlParser: true});
@@ -50,6 +51,7 @@ app.use(listRoutes);
 app.use(strangerRoutes);
 app.use(authRoutes);
 app.use(userRoutes);
+app.use(resetRoutes);
 
 app.listen(process.env.PORT, process.env.IP, () => {
     console.log('Server for Not A Stranger has started');

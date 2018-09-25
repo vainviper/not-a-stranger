@@ -4,17 +4,17 @@ const   express     = require('express'),
         User        = require('../models/user');
 
 // LANDING PAGE
-router.get("/", (req, res) => {
-    res.render("index");
+router.get('/', (req, res) => {
+    res.render('index');
 });
 
 //AUTH ROUTES
-router.get("/register", (req, res) => {
-    res.render("register");
+router.get('/register', (req, res) => {
+    res.render('register');
 });
 
-router.post("/register", (req, res) => {
-    let newUser = new User({ username: req.body.username});
+router.post('/register', (req, res) => {
+    let newUser = new User({ username: req.body.username, email: req.body.email});
     if(req.body.adminCode === 'secretcode123') {
         newUser.isAdmin = true;
     }
@@ -23,29 +23,33 @@ router.post("/register", (req, res) => {
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
-            passport.authenticate("local")(req, res, () => {
+            passport.authenticate('local')(req, res, () => {
                 req.flash('success', 'User ' + req.body.username + ' has been created');
-                res.redirect("/lists");
+                res.redirect('/lists');
             });
         }
     });
 });
 
-router.get("/login", (req, res) => {
-    res.render("login");
+router.get('/login', (req, res) => {
+    res.render('login');
 });
 
-router.post("/login", passport.authenticate("local", 
+router.post('/login', passport.authenticate('local', 
     {
-        successRedirect: "/lists",
-        failureRedirect: "/login",
+        successRedirect: '/lists',
+        failureRedirect: '/login/forgot',
         failureFlash: true
     }));
 
-router.get("/logout", (req, res) => {
+router.get('/login/forgot', (req, res) => {
+    res.render('loginForgot');
+})
+
+router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success', 'Successfully logged out');
-    res.redirect("/");
+    res.redirect('/');
 });
 
 module.exports = router;

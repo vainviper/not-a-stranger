@@ -5,6 +5,7 @@
         <h1 class="display-4">Edit <%= user.username %></h1>
         <form action="/user/<%= user._id %>/?_method=PUT" method="POST">
             <input class="form-control" type="text" name="user[username]" value="<%= user.username %>">
+            <input class="form-control" type="email" name="user[email]" value="<%= user.email %>">
             <% if(currentUser.isAdmin) { %>
             <input class="form-control" type="text" name="user[isAdmin]" value="<%= user.isAdmin %>">
             <% } %>

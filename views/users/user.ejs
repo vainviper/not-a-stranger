@@ -6,12 +6,14 @@
     <table class="table sortable">
         <tr>
             <th>Username</th>
+            <th>Email</th>
             <th>id</th>
             <th>isAdmin</th>
         </tr>
         <% user.forEach(function(user){ %>
             <tr>
                 <td><a href="/user/<%= user._id %>"><strong><%= user.username %></strong></a></td>
+                <td> <%= user.email %></td>
                 <td> <%= user._id %></td>
                 <td> <%= user.isAdmin %></td>
             </tr>
