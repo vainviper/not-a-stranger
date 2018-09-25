@@ -52,9 +52,9 @@
       <% } else { %>
       <li class="nav-item active">
         <% if(currentUser.isAdmin) { %>
-          <a class="nav-link" href="#"><i class="fas fa-unlock-alt"></i> Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/user/<%= currentUser._id %>"><i class="fas fa-unlock-alt"></i> Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
         <% } else { %>
-          <a class="nav-link" href="#">Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/user/<%= currentUser._id %>">Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
         <% } %>
       </li>
       <li class="nav-item active">

@@ -8,18 +8,35 @@
                 <th>id:</th>
                 <td><%= user._id %></td>
             </tr>
+            <% if(currentUser.isAdmin) { %>
             <tr>
                 <th>isAdmin:</th>
                 <td><%= user.isAdmin %></td>
             </tr>
+            <% } %>
         </table>
         <a class="btn btn-sm btn-info left-align-button" href="/users">Back</a>
         <br>
-            <a class="btn btn-success btn-sm" href="/users/<%= user._id %>/edit">Edit</a>
-            <form class="btn-inline" action="/users/<%= user._id %>/?_method=DELETE" method="POST">
-                <button class="btn btn-warning btn-sm" >Delete</button>
-            </form>       
+
+        <% if (currentUser && user._id.equals(currentUser._id) || currentUser.isAdmin) { %>
+            <a class="btn btn-warning btn-sm" href="/user/<%= user._id %>/edit">Edit</a>
+            <a class="btn btn-danger btn-sm showButton" href="#">Delete</a>
+
+            <div class="confirmForm hidden">
+                <form id="form">
+                    <input class="form-control-sm" type="text" name="confirmText" aria-describedby="textConfirm">
+                    <small id="textConfirm" class="form-text text-muted">
+                    Type Username To Confirm
+                    </small>
+                    <input type="hidden" name="equals" value="<%= user.username %>">
+                </form>
+                <form class="btn-inline hidden deleteButton" action="/user/<%= user._id %>/?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-sm confirmDelete" >Confirm</button>
+                </form>
+            </div>
+        <% } %>        
     </div>
 </div>
- 
+
+<script src="/scripts/confirm.js"></script>
 <% include ../partials/footer %>

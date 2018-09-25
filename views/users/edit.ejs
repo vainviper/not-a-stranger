@@ -3,12 +3,14 @@
 <div class="container">
     <div class="centeredStrangerDiv">
         <h1 class="display-4">Edit <%= user.username %></h1>
-        <form action="/users/<%= user._id %>/?_method=PUT" method="POST">
+        <form action="/user/<%= user._id %>/?_method=PUT" method="POST">
             <input class="form-control" type="text" name="user[username]" value="<%= user.username %>">
+            <% if(currentUser.isAdmin) { %>
             <input class="form-control" type="text" name="user[isAdmin]" value="<%= user.isAdmin %>">
+            <% } %>
             <button class="btn btn-lg btn-success btn-block correctAlignment">Edit <%= user.usename %></button>
         </form>
-        <a class="btn btn-sm btn-info left-align-button-2" href="/users/<%= user._id %>/">Back</a>
+        <a class="btn btn-sm btn-info left-align-button-2" href="/user/<%= user._id %>/">Back</a>
     </div>
 </div> 
 
