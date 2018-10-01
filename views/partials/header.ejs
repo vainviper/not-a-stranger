@@ -15,7 +15,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <% if (currentUser) { %>
-    <a class="navbar-brand" href="/">NOT A STRANGER</a>
+    <a class="navbar-brand hoverTextNav" href="/">NOT A STRANGER</a>
   <% } %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -26,17 +26,17 @@
     <% if(currentUser) { %>
       <li class="nav-item active">
       <% if(typeof(stranger) !== 'undefined') { %>
-        <a class="nav-link" href="/lists/<%= list._id %>/strangers/new">New Stranger <span class="sr-only">(current)</span></a>
+        <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/strangers/new">New Stranger <span class="sr-only">(current)</span></a>
       <% } else {%>
-        <a class="nav-link" href="/lists/new">New Collection <span class="sr-only">(current)</span></a>
+        <a class="nav-link hoverTextNav" href="/lists/new">New Collection <span class="sr-only">(current)</span></a>
       <% } %>
       </li>
         <% if (currentUser.isAdmin) { %>
         <li class="nav-item active">
-          <a class="nav-link" href="/lists/all"><i class="fas fa-unlock-alt"></i> Show All Collections <span class="sr-only">(current)</span></a>
+          <a class="nav-link hoverTextNav" href="/lists/all"><i class="fas fa-unlock-alt"></i> Show All Collections <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/users"><i class="fas fa-unlock-alt"></i> Show Users <span class="sr-only">(current)</span></a>
+          <a class="nav-link hoverTextNav" href="/users"><i class="fas fa-unlock-alt"></i> Show Users <span class="sr-only">(current)</span></a>
         </li>
       <% } %>
     <% } %>
@@ -44,21 +44,21 @@
     <ul class="navbar-nav">
       <% if (!currentUser) { %>
         <li class="nav-item active">
-          <a class="nav-link" href="/register">Register<span class="sr-only">(current)</span></a>
+          <a class="nav-link hoverTextNav" href="/register">Register<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+          <a class="nav-link hoverTextNav" href="/login">Login<span class="sr-only">(current)</span></a>
         </li>
       <% } else { %>
       <li class="nav-item active">
         <% if(currentUser.isAdmin) { %>
-          <a class="nav-link" href="/user/<%= currentUser._id %>"><i class="fas fa-unlock-alt"></i> Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
+          <a class="nav-link hoverTextNav" href="/user/<%= currentUser._id %>"><i class="fas fa-unlock-alt"></i> Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
         <% } else { %>
-          <a class="nav-link" href="/user/<%= currentUser._id %>">Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
+          <a class="nav-link hoverTextNav" href="/user/<%= currentUser._id %>">Logged in as <%= currentUser.username %><span class="sr-only">(current)</span></a>
         <% } %>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+        <a class="nav-link hoverTextNav" href="/logout">Logout<span class="sr-only">(current)</span></a>
       </li>
       <% } %>
     </ul>

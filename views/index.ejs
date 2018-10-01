@@ -2,11 +2,11 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1>NOT A STRANGER</h1>
+        <h1 class="animatedTitle">NOT A STRANGER</h1>
         <% if(currentUser) { %>
-            <a class= "text-muted" href="/lists">Go To Collections</a>
+            <p class= "text-muted">Go To <a class="hoverTextDefault" href="/login">Collections</a></p>
         <% } else { %>
-            <a class= "text-muted" href="/login">Sign In Or Register To Continue</a>
+            <p class="text-muted"><a class="hoverTextDefault" href="/login">Sign In</a> Or <a class="hoverTextDefault" href="/register">Register</a> To Continue</p>
         <% }%>
     </div>
 </div>
