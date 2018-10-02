@@ -1,20 +1,47 @@
 <% include ./partials/header %>
-
+<!--
 <div class="row">
     <div class="centeredDiv">
-        <h1 class="display-3">LOGIN</h1>
-        <form action="/login" method="POST">
+        <form class="form-style-7" action="/login" method="POST">
+            <ul>
+                <li>
+                    <label for="name">Username</label>
+                    <input type="text" name="name" maxlength="100">
+                    <span>Enter your username here</span>
+                </li>
+                <li>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" maxlength="100">
+                    <span>Enter your password here</span>
+                </li>
+                <li>
+                    <input type="submit" value="Login" >
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+-->
+
+<div class="background"></div>
+<div class="row">
+    <div class="centeredDiv">
+
+        <h1 class="display-3">Login</h1>
+        <form action="/login" method="POST" autocomplete="off">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" class="form-control" type="text" name="username" placeholder="enter username">
+                <input id="username" class="form-control" type="text" name="username">
+                <span>Enter your username here</span>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input id="password" class="form-control" type="password" name="password" placeholder="enter password">
+                <input id="password" class="form-control" type="password" name="password">
+                <span>Enter your password here</span>
             </div>
-            <button class="btn btn-lg btn-success btn-block correctAlignment">Login</button>
+            <button class="btn btn-lg btn-dark btn-block correctAlignment">Login</button>
         </form>
-        <p class="text-center">New user? <a href="/register">Register to continue</a></p>
+        <p class="userQuestion">New user? <a href="/register">Register to continue</a></p>
     </div>
 </div>
 

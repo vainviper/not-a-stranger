@@ -1,0 +1,83 @@
+/* NAV BAR */
+
+.navbar {
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    font-family: "Kalam", cursive;
+    opacity: 0;
+    transform: translateY(-100px);
+    animation: navfadein 1s 0.3s forwards;
+}
+@keyframes navfadein {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LANDING PAGE */
+
+/* .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/desk_and_pen.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7) blur(2px);
+    padding: 0;
+    margin: 0;
+    z-index: -1;
+} */
+
+.jumbotron {
+    position: relative;
+    text-align: center;
+    background: rgba(233, 236, 239, 0);
+    margin-top: 20vh;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: fadein 1s 0.5s forwards;
+}
+
+@keyframes fadein {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animatedTitle {
+    font: normal 56px "Nothing You Could Do", "cursive";
+    color: rgb(255, 255, 255);
+    opacity: 0.8;
+}
+
+.jumbotron p {
+    display: inline;
+    font: normal 25px "Kalam", "cursive"; 
+    opacity: 0.8;
+    color: rgb(255, 255, 255);
+}
+
+.jumbotron a {
+    display: inline;
+    font: normal 25px "Kalam", "cursive"; 
+    color: rgb(255, 255, 255);
+    margin-right: 5px;
+}
+
+.subtTitleHover {
+    opacity: 0.8;
+    transition-duration: 100ms;
+    transition-delay: 50ms;
+    transition-timing-function: ease-in-out;
+}
+.subtTitleHover:hover {
+    text-decoration: none;
+    opacity: 1;
+    transition-duration: 100ms;
+    transition-delay: 50ms;
+    transition-timing-function: ease-in-out;
+}
