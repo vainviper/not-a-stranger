@@ -1,13 +1,16 @@
 <% include ./partials/header %>
-
+<div class="background"></div>
 <div class="container">
     <div class="jumbotron">
         <h1 class="animatedTitle">NOT A STRANGER</h1>
         <% if(currentUser) { %>
-            <p class= "text-muted">Go To <a class="hoverTextDefault" href="/login">Collections</a></p>
+            <p class="subTitle">Go To </p><a class="subtTitleHover" href="/login">Collections</a>
         <% } else { %>
-            <p class="text-muted"><a class="hoverTextDefault" href="/login">Sign In</a> Or <a class="hoverTextDefault" href="/register">Register</a> To Continue</p>
-        <% }%>
+            <a class="subtTitleHover" href="/login">Login</a>
+            <p class="subTitle"> Or </p>
+            <a class="subtTitleHover" href="/register">Register</a> 
+            <p class="subTitle"> To Continue</p>
+        <% }%> 
     </div>
 </div>
 

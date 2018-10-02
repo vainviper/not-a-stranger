@@ -23,9 +23,20 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
         race = req.body.race,
         nation = req.body.nation,
         meetArea = req.body.meetArea,
+        mentality = req.body.mentality,
+        height = req.body.height,
+        weight = req.body.weight,
+        build = req.body.build,
+        eye = req.body.eye,
+        hair = req.body.hair,
+        socialRank = req.body.socialRank,
         occupation = req.body.occupation,
+        family = req.body.family,
         born = (req.body.currentAge - req.body.age),
         bio = req.body.bio,
+        skills = req.body.skills,
+        equipment = req.body.equipment,
+
         images = req.body.images,
         author = {
             id: req.user.id,
@@ -34,7 +45,11 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
         list = {
             id: req.params.id
         },
-        newindividual = {firstName: firstName, lastName: lastName, race: race, nation: nation, meetArea: meetArea, occupation: occupation, born: born, bio: bio, images: images, author: author, list: list};
+        newindividual = {firstName: firstName, lastName: lastName, race: race, nation: nation, 
+                        meetArea: meetArea, mentality: mentality, height: height, weight: weight, 
+                        build: build, eye: eye, hair: hair, socialRank: socialRank, family: family, 
+                        skills: skills, equipment: equipment, occupation: occupation, born: born, 
+                        bio: bio, images: images, author: author, list: list};
         Stranger.create(newindividual, (err, individual) => {
         if(err) {
             req.flash('error', 'Something went wrong');

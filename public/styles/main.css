@@ -1,73 +1,127 @@
-/* Sortable tables */
-table.sortable thead {
-    background-color:#eee;
-    color:#666666;
-    font-weight: bold;
-    cursor: default;
-}
-/* Cell width in the tables */
-.cell-width-30 {
-    width: 40%
-}
-.cell-width-40 {
-    width: 40%
-}
-.display-3 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin: 10px 0;
-}
-.display-4 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin: 15px 0;
-    text-transform: uppercase;
-}
-.jumbotron {
-    position: relative;
-    text-align: center;
-    margin-top: 20vh;
-    border-radius: 20px;
-    box-shadow: 1px 1px 5px rgb(105, 105, 105);
-}
-.navbar {
-    box-shadow: 1px 1px 5px rgb(105, 105, 105);
-}
-.text-muted {
-    margin-bottom: 0px;
-}
-.hoverTextDefault {
-    display: inline-block;
-    color: inherit;
-    transition-duration: 100ms;
-    transition-delay: 50ms;
-    transition-timing-function: ease-in-out;
-}
-.hoverTextDefault:hover {
-    color: inherit;
-    text-decoration: none;
-    transform: scale(1.1);
-    margin: 0 4px;
-    transition-duration: 100ms;
-    transition-delay: 50ms;
-    transition-timing-function: ease-in-out;
-}
-.hoverTextNav {
-    display: inline-block;
-    color: inherit;
-    transition-duration: 100ms;
-    transition-delay: 50ms;
-    transition-timing-function: ease-in-out;
-}
-.hoverTextNav:hover {
-    color: inherit;
-    text-decoration: none;
-    transform: scale(1.1);
-    transform-origin: 50% 50%;
-    transition-duration: 100ms;
-    transition-delay: 50ms;
-    transition-timing-function: ease-in-out;
-}
+/* NAV BAR */
+
+    .navbar {
+        box-shadow: 1px 1px 5px rgb(0, 0, 0);
+        font-family: "Kalam", cursive;
+    }
+    .text-muted {
+        margin-bottom: 0px;
+    }
+    .hoverTextNav {
+        margin-top: 5px;
+        display: inline-block;
+        color: inherit;
+        transition-duration: 100ms;
+        transition-delay: 50ms;
+        transition-timing-function: ease-in-out;
+    }
+    .hoverTextNav:hover {
+        color: inherit;
+        text-decoration: none;
+        /* transform: scale(1.1);
+        transform-origin: 50% 50%; */
+        opacity: 1;
+        transition-duration: 100ms;
+        transition-delay: 50ms;
+        transition-timing-function: ease-in-out;
+    }
+
+/* LANDING PAGE */
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-image: url('../images/desk_and_pen.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+        z-index: -1;
+    }
+
+    .jumbotron {
+        position: relative;
+        text-align: center;
+        background: rgba(233, 236, 239, 0);
+        margin-top: 20vh;
+    }
+
+    .animatedTitle {
+        font: normal 56px "Nothing You Could Do", "cursive";
+        color: rgb(255, 255, 255);
+        opacity: 0.8;
+    }
+
+    .jumbotron p {
+        display: inline;
+        font: normal 25px "Kalam", "cursive"; 
+        opacity: 0.8;
+        color: rgb(255, 255, 255);
+    }
+
+    .jumbotron a {
+        display: inline;
+        font: normal 25px "Kalam", "cursive"; 
+        color: rgb(255, 255, 255);
+        margin-right: 5px;
+    }
+
+    .subtTitleHover {
+        opacity: 0.8;
+        transition-duration: 100ms;
+        transition-delay: 50ms;
+        transition-timing-function: ease-in-out;
+    }
+    .subtTitleHover:hover {
+        text-decoration: none;
+        opacity: 1;
+        transition-duration: 100ms;
+        transition-delay: 50ms;
+        transition-timing-function: ease-in-out;
+    }
+
+/* MAIN PAGES */
+
+    /* General Appearance */
+
+        .display-3 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        .display-4 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+    /* Tables */
+
+        table.sortable thead {
+            background-color:#eee;
+            color:#666666;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        .cell-width-30 {
+            width: 40%
+        }
+        .cell-width-40 {
+            width: 40%
+        }
+
+/* FORMS */
+
+        
+
+/*  GENERAL STYLES*/
+
 .centeredDiv {
     width: 30%;
     margin: 5vh auto;
@@ -103,28 +157,4 @@ input {
 }
 .hidden {
     display: none;
-}
-.animatedTitle {
-    animation-name: animatedtitle;
-    animation-delay: 0s;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-@keyframes animatedtitle {
-    0% {
-        color: black;
-    }
-    30% {
-        color: rgba(63, 63, 63, 0.8);
-    }
-    50% {
-        color: rgb(63, 63, 63);
-    }
-    70% {
-        color: rgba(63, 63, 63, 0.8);      
-    }
-    100% {
-        color: black;
-    }
 }
