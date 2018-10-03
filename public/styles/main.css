@@ -40,10 +40,15 @@
             background-image: url('../images/desk_and_pen.jpg');
             background-size: cover;
             background-position: center;
+            background-color: black;
             filter: brightness(0.7) blur(2px);
             padding: 0;
             margin: 0;
             z-index: -1;
+        }
+
+        .bg-stranger {
+            height: 130vh;
         }
 
         .display-4 {
@@ -69,11 +74,13 @@
             width: 40%
         }
 
-/* FORMS */
-
-        
-
 /*  GENERAL STYLES*/
+
+.backButton {
+    margin: 15px 7px;
+    text-align: left;
+    background-color: #5c83aa;
+}
 
 .centeredDiv {
     width: 30%;
@@ -82,15 +89,6 @@
 .centeredStrangerDiv {
     width: 50%;
     margin: 5vh auto;
-}
-.correctAlignment {
-    margin-left: 5px;
-    margin-bottom: 5px;
-    background-color: rgb(25, 134, 129); 
-}
-.left-align-button {
-    margin: 5px 0;
-    text-align: left;
 }
 .left-align-button-2 {
     margin: 5px 5px;

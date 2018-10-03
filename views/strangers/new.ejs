@@ -1,57 +1,125 @@
 <% include ../partials/header %>
 
-    <div class="row">
-        <div class="col-12">
-            <h1 class="display-4">Create New Stranger For <%= list.name %></h1>
-        </div>
-    </div>      
-
-    <form action="/lists/<%= list._id %>/strangers" method="POST" id="stranger-new">    
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+<div class="background bg-stranger"></div>
+<div class="row">
+    <div class="col-12">
+        <h1 class="formHeader">Create New Stranger For <%= list.name %></h1>
+    </div>
+</div>      
+<form action="/lists/<%= list._id %>/strangers" method="POST" id="stranger-new" autocomplete="off">
+    <div class="row"> 
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="form-group">
                 <h5>General</h5>
-                <input class="form-control" type="text" name="firstName" placeholder="first name" required>
-                <input class="form-control" type="text" name="lastName" placeholder="last name">
-                <input class="form-control" type="text" name="race" placeholder="race">
-                <input class="form-control" type="text" name="nation" placeholder="nationality">
-                <input class="form-control" type="text" name="meetArea" placeholder="place of first met">
-                <input class="form-control" type="text" name="mentality" placeholder="mentality/life goal"> <!-- -->
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <h5>Appearance</h5>
-                <input class="form-control" type="number" name="age" placeholder="age">
-                <input type="hidden" type="number" name="currentAge" value="<%= list.currentAge %>">
-                <input class="form-control" type="number" name="height" placeholder="height"> <!-- -->
-                <input class="form-control" type="number" name="weight" placeholder="weight"> <!-- -->
-                <input class="form-control" type="text" name="build" placeholder="build"> <!-- -->
-                <input class="form-control" type="text" name="eye" placeholder="eye color"> <!-- -->
-                <input class="form-control" type="text" name="hair" placeholder="hair color"> <!-- -->
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <h5>Family</h5> 
-                <input class="form-control" type="text" name="socialRank" placeholder="social rank"> <!-- -->
-                <input class="form-control" type="text" name="occupation" placeholder="occupation">
-                <textarea class="form-control correctAlignment" rows="4" cols="50" name="family" form="stranger-new" placeholder="enter family"></textarea> <!-- -->
-                <textarea class="form-control correctAlignment" rows="4" cols="50" name="bio" form="stranger-new" placeholder="enter bio"></textarea> <!-- -->
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <h5>Stats and equipment</h5>
-                <textarea class="form-control correctAlignment" rows="4" cols="50" name="skills" form="stranger-new" placeholder="enter skills"></textarea> <!-- -->
-                <textarea class="form-control correctAlignment" rows="4" cols="50" name="equipment" form="stranger-new" placeholder="enter equipment"></textarea> <!-- -->
+                <div class="form-group-border">
+                    <label for="firstName">Firstname</label>
+                    <input class="form-control" type="text" name="firstName" required>
+                    <span>Enter the first name here</span>
+                    <label for="lastName">Surname</label>
+                    <input class="form-control" type="text" name="lastName">
+                    <span>Enter the surname here</span>
+                    <label for="race">Race</label>
+                    <input class="form-control" type="text" name="race">
+                    <span>Enter the race here</span>
+                    <label for="nation">Nationality</label>
+                    <input class="form-control" type="text" name="nation">
+                    <span>Enter the nationality here</span>
+                    <label for="meetArea">First encountered</label>
+                    <input class="form-control" type="text" name="meetArea">
+                    <span>Enter first encounter here</span>
+                    <label for="mentality">Mentality/Life goal</label>
+                    <input class="form-control" type="text" name="mentality">
+                    <span>Enter life goals or mentality here</span>
+                </div>
             </div>
         </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="form-group">
+                <h5>Appearance</h5>
+                <div class="form-group-border">
+                    <label for="age">Age</label>
+                    <input class="form-control" type="number" name="age">
+                    <span>Enter the age here</span>
+                    <input type="hidden" type="number" name="currentAge" value="<%= list.currentAge %>">
+                    <label for="height">Height</label>
+                    <input class="form-control" type="number" name="height">
+                    <span>Enter the height in centimeters here</span>
+                    <label for="weight">Weight</label>
+                    <input class="form-control" type="number" name="weight">
+                    <span>Enter the weight in kilograms here</span>
+                    <label for="build">Build</label>
+                    <input class="form-control" type="text" name="build">
+                    <span>Enter the build here</span>
 
-        <div class="row">
-            <div class="col-12">
-                <button class="btn btn-lg btn-success btn-block correctAlignment">Create Stranger</button>
+                    <label for="eye">Eye color</label>
+                    <select class="form-control" id="eye" name="eye">
+                        <option value="">Select eye color</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Green">Green</option>
+                        <option value="Black">Black</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Red">Red</option>
+                    </select>
+                    <span>Select eye color here</span>
+                    <label for="hair">Hair color</label>
+                    <select class="form-control" id="hair" name="hair">
+                        <option value="">Select hair color</option>
+                        <option value="Blond">Blond</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Black">Black</option>
+                        <option value="Red">Red</option>
+                        <option value="White">White</option>
+                        <option value="Purple">Purple</option>
+                    </select>
+                    <span>Select hair color here</span>
+                </div>
             </div>
-        </div>    
-    </form>
-
-    <div class="row">
-        <div class="col-12">
-            <a class="btn btn-sm btn-info left-align-button-2" href="/lists/<%= list._id %>/">Back</a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="form-group">
+                <h5>Social</h5>
+                <div class="form-group-border">
+                    <label for="socialRank">Social rank</label>
+                    <input class="form-control" type="text" name="socialRank"> 
+                    <span>Enter the social rank here</span>
+                    <label for="occupation">Occupation</label>
+                    <input class="form-control" type="text" name="occupation">
+                    <span>Enter occupation here</span>
+                    <label for="family">Family</label>
+                    <textarea class="form-control correctAlignment" rows="4" cols="50" name="family" form="stranger-new"></textarea>
+                    <span>Enter some or all family here</span>
+                    <label for="bio">General info</label>
+                    <textarea class="form-control correctAlignment" rows="4" cols="50" name="bio" form="stranger-new"></textarea>
+                    <span>Enter some general info here</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="form-group">
+                <h5>Stats and equipment</h5>
+                <div class="form-group-border">
+                    <label for="skills">Skills</label>
+                    <textarea class="form-control correctAlignment" rows="7" cols="50" name="skills" form="stranger-new"></textarea>
+                    <span>Enter some or all skills here</span>
+                    <label for="equipment">Equipment</label>
+                    <textarea class="form-control correctAlignment" rows="8" cols="50" name="equipment" form="stranger-new"></textarea>
+                    <span>Enter some equipment here</span>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-lg btn-dark btn-block submitButton">Create Stranger</button>
+        </div>
+    </div>    
+</form>
+
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-sm btn-dark backButton" href="/lists/<%= list._id %>/">Back</a>
+    </div>
+</div>
 
 <% include ../partials/footer %>

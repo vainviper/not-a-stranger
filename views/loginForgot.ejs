@@ -1,16 +1,28 @@
 <% include ./partials/header %>
 
-<div class="row">
-    <div class="centeredDiv">
-        <h1 class="display-3">LOGIN</h1>
-        <form action="/login" method="POST">
-            <input class="form-control" type="text" name="username" placeholder="username">
-            <input class="form-control" type="password" name="password" placeholder="password">
-            <button class="btn btn-lg btn-success btn-block correctAlignment">Login</button>
+<div class="background"></div>
+<div class="row align-items-end">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+        <h1 class="formHeader">Login</h1>
+        <form action="/login" method="POST" autocomplete="off">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" class="form-control" type="text" name="username">
+                <span>Enter your username here</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" class="form-control" type="password" name="password">
+                <span>Enter your password here</span>
+            </div>
+            <button class="btn btn-lg btn-dark btn-block submitButton">Login</button>
         </form>
-        <p class="text-center">New user? <a href="/register">Register to continue</a></p>
-        <p class="text-center">Forgot password? <a href="/forgot">Click here to reset</a></p>
+        <p class="userQuestion">New user? <a href="/register">Register to continue</a></p>
+        <p class="userQuestion" style="margin-top: 0;">Forgot password? <a href="/forgot">Click here to reset</a></p>
     </div>
+    <div class="col-md-4"></div>
 </div>
 
 <% include ./partials/footer %>

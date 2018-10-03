@@ -1,33 +1,11 @@
 <% include ./partials/header %>
-<!--
-<div class="row">
-    <div class="centeredDiv">
-        <form class="form-style-7" action="/login" method="POST">
-            <ul>
-                <li>
-                    <label for="name">Username</label>
-                    <input type="text" name="name" maxlength="100">
-                    <span>Enter your username here</span>
-                </li>
-                <li>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" maxlength="100">
-                    <span>Enter your password here</span>
-                </li>
-                <li>
-                    <input type="submit" value="Login" >
-                </li>
-            </ul>
-        </form>
-    </div>
-</div>
--->
 
 <div class="background"></div>
-<div class="row">
-    <div class="centeredDiv">
-
-        <h1 class="display-3">Login</h1>
+<div class="row align-items-end">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+ 
+        <h1 class="formHeader">Login</h1>
         <form action="/login" method="POST" autocomplete="off">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -39,10 +17,11 @@
                 <input id="password" class="form-control" type="password" name="password">
                 <span>Enter your password here</span>
             </div>
-            <button class="btn btn-lg btn-dark btn-block correctAlignment">Login</button>
+            <button class="btn btn-lg btn-dark btn-block submitButton">Login</button>
         </form>
         <p class="userQuestion">New user? <a href="/register">Register to continue</a></p>
     </div>
+    <div class="col-md-4"></div>
 </div>
 
 <% include ./partials/footer %>

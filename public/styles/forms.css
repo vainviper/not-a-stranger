@@ -1,28 +1,56 @@
-.centeredDiv h1 {
+.formHeader {
     font: normal 3rem "Nothing You Could Do", cursive;
     text-align: center;
-    margin: 10px 0;
+    margin: 10px 0 0;
     color: white;
+}
+
+.formDiv {
+    align-items: center;
+}
+
+.form-group-border {
+    border: 1px solid grey;
+    padding: 5px 15px 5px 5px;
+}
+
+form .form-group h5 {
+    margin: 10px 0 5px;
+    color: white;
+    text-align: center;
+    font: bold 1.3rem Karam, cursive;
 }
 
 form div label {
     padding: 0;
-    margin: 0 7px;
+    margin: -5px 7px -5px 7px;
     font: normal 1.2rem Karam, cursive;
     letter-spacing: 2px;
     color: white;
 }
 
 input[type="text"],
-input[type="password"] {
-    background: rgba(255, 255, 255, 0.1);
+input[type="email"],
+input[type="number"],
+input[type="password"],
+textarea.form-control,
+select.form-control {
+    background: rgba(0, 0, 0, 0.4);
     margin: 5px;
+    color: rgb(224, 224, 224);
+    font: normal 1.1rem Karam, cursive;
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus {
-    background: rgba(255, 255, 255, 0.4);
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgb(224, 224, 224);
 }
+
 form div span{
     background: rgba(0, 0, 0, 0.2);
     border-radius: 2px;
@@ -35,11 +63,32 @@ form div span{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
-.centeredDiv p {
-    color: white;
-}
 
 .userQuestion {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10%;
+    margin: -5px -5px 0 5px;
+    padding: 3px 0;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+}
+
+.userQuestion a {
+    text-decoration: none;
+    color: rgb(45, 219, 250);
+    opacity: 0.8;
+}
+.userQuestion a:hover {
+    text-decoration: none;
+    color: rgb(45, 219, 250);
+    opacity: 1;
+}
+
+.submitButton {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color: #aaaa5c; 
+    /* background-color: #5c83aa;  */
+    /* background-color: rgb(25, 134, 129);  */
 }

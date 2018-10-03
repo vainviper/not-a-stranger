@@ -15,29 +15,29 @@
             <input class="form-control" type="text" name="stranger[race]" value="<%= stranger.race %>">
             <input class="form-control" type="text" name="stranger[nation]" value="<%= stranger.nation %>">
             <input class="form-control" type="text" name="stranger[meetArea]" value="<%= stranger.meetArea %>">
-            <input class="form-control" type="text" name="stranger[mentality]" placeholder="mentality/life goal"> <!-- -->
+            <input class="form-control" type="text" name="stranger[mentality]" placeholder="mentality/life goal"> 
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <h5>Appearance</h5>
             <input class="form-control" type="number" name="stranger[age]" value="<%= list.currentAge - stranger.born %>">
             <input type="hidden" type="number" name="stranger[currentAge]" value="<%= list.currentAge %>">
-            <input class="form-control" type="number" name="stranger[height]" value="<%= stranger.height %>"> <!-- -->
-            <input class="form-control" type="number" name="stranger[weight]" value="<%= stranger.weight %>"> <!-- -->
-            <input class="form-control" type="text" name="stranger[build]" value="<%= stranger.build %>"> <!-- -->
-            <input class="form-control" type="text" name="stranger[eye]" value="<%= stranger.eye %>"> <!-- -->
-            <input class="form-control" type="text" name="stranger[hair]" value="<%= stranger.hair %>"> <!-- -->
+            <input class="form-control" type="number" name="stranger[height]" value="<%= stranger.height %>"> 
+            <input class="form-control" type="number" name="stranger[weight]" value="<%= stranger.weight %>">
+            <input class="form-control" type="text" name="stranger[build]" value="<%= stranger.build %>"> 
+            <input class="form-control" type="text" name="stranger[eye]" value="<%= stranger.eye %>"> 
+            <input class="form-control" type="text" name="stranger[hair]" value="<%= stranger.hair %>"> 
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <h5>Family</h5> 
-            <input class="form-control" type="text" name="stranger[socialRank]" value="<%= stranger.socialRank %>"> <!-- -->
+            <input class="form-control" type="text" name="stranger[socialRank]" value="<%= stranger.socialRank %>">
             <input class="form-control" type="text" name="stranger[occupation]" value="<%= stranger.occupation %>">
-            <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[family]" form="stranger-edit"><%= stranger.family %></textarea> <!-- -->
+            <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[family]" form="stranger-edit"><%= stranger.family %></textarea> 
             <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[bio]" form="stranger-edit"><%= stranger.bio %></textarea>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <h5>Stats and equipment</h5>
-            <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[skills]" form="stranger-edit"><%= stranger.skills %></textarea> <!-- -->
-            <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[equipment]" form="stranger-edit"><%= stranger.equipment %></textarea> <!-- -->
+            <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[skills]" form="stranger-edit"><%= stranger.skills %></textarea> 
+            <textarea class="form-control correctAlignment" rows="4" cols="50" name="stranger[equipment]" form="stranger-edit"><%= stranger.equipment %></textarea>
         </div>
     </div>
 
