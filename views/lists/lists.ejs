@@ -1,45 +1,48 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <h3 class="display-4">COLLECTIONS</h3>
-    <table class="table sortable">
-        <tr>
-            <th class="cell-width-30">Name</th>
-            <th>Year</th>
-            <th class="cell-width-40">Description</th>
-            <% if(currentUser.isAdmin) { %>
-                <th>Owner</th>
-            <% } %>
-            <th></th>
-        </tr>
-        <% list.forEach(function(list){ %>
+<div class="background"></div>
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="listHeader">Collections</h3>
+        <table class="table sortable">
             <tr>
-                <td><a href="/lists/<%= list._id %>"><%= list.name %></a></td>
-                <td><%= list.currentAge %></td>
-                <td><%= list.description %></td>
+                <th class="cell-width-30">Name</th>
+                <th>Year</th>
+                <th class="cell-width-40">Description</th>
                 <% if(currentUser.isAdmin) { %>
-                    <th><%= list.author.username %></th>
+                    <th>Owner</th>
                 <% } %>
-                <td>
-                    <a class="btn btn-warning btn-sm" href="/lists/<%= list._id %>/edit">Edit</a>
-                    <a class="btn btn-danger btn-sm showButton" href="#">Delete</a>
-
-                    <div class="confirmForm hidden">
-                        <form id="form">
-                            <input type="text" name="confirmText" aria-describedby="textConfirm">
-                            <input type="hidden" name="equals" value="<%= list.name %>">
-                            <small id="textConfirm" class="form-text text-muted">
-                            Type Listname To Confirm
-                            </small>
-                        </form>
-                        <form class="btn-inline hidden deleteButton" action="/lists/<%= list._id %>/?_method=DELETE" method="POST">
-                            <button class="btn btn-danger btn-sm confirmDelete" >Confirm</button>
-                        </form>
-                    </div>
-                </td>
+                <th></th>
             </tr>
-        <% }) %>
-    </table>
+            <% list.forEach(function(list){ %>
+                <tr>
+                    <td><a href="/lists/<%= list._id %>"><%= list.name %></a></td>
+                    <td><%= list.currentAge %></td>
+                    <td><%= list.description %></td>
+                    <% if(currentUser.isAdmin) { %>
+                        <th><%= list.author.username %></th>
+                    <% } %>
+                    <td>
+                        <a class="btn btn-dark btn-sm editButton" href="/lists/<%= list._id %>/edit">Edit</a>
+                        <a class="btn btn-dark btn-sm deleteButton" href="#">Delete</a>
+
+                        <div class="confirmForm hidden">
+                            <form id="form">
+                                <input type="text" name="confirmText" aria-describedby="textConfirm">
+                                <input type="hidden" name="equals" value="<%= list.name %>">
+                                <small id="textConfirm" class="form-text text-muted">
+                                Type Listname To Confirm
+                                </small>
+                            </form>
+                            <form class="btn-inline hidden deleteButton" action="/lists/<%= list._id %>/?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-sm confirmDelete" >Confirm</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
 </div>
 
 <script src="/scripts/confirm.js"></script>

@@ -1,0 +1,45 @@
+.listHeader {
+    font: normal 3rem "Nothing You Could Do", cursive;
+    text-align: center;
+    margin: 10px 0 0;
+    color: white;
+}
+
+/* Tables */
+
+    table.sortable thead {
+        background-color:rgb(0, 0, 0);
+        opacity: 0.8;
+        color: white;
+        font-weight: bold;
+        cursor: default;
+    }
+
+    table.sortable tr {
+        border-bottom: 1px solid white;
+        vertical-align: center;
+    }
+
+    table.sortable tr td:not(a){
+        color: rgb(201, 201, 201);
+        vertical-align: center;
+    }
+
+    table.sortable tr td a {
+        font-size: 1.1rem;
+        color: rgb(255, 255, 255);
+        opacity: 0.8;
+        text-decoration: none;
+        margin-top: 0px;
+    }
+
+    table.sortable tr td a:hover {
+        opacity: 1;
+    }
+
+    .cell-width-30 {
+        width: 40%
+    }
+    .cell-width-40 {
+        width: 40%
+    }
