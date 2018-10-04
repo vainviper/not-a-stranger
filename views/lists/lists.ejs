@@ -27,14 +27,14 @@
                         <a class="btn btn-dark btn-sm deleteButton" href="#">Delete</a>
 
                         <div class="confirmForm hidden">
-                            <form id="form">
+                            <form class="formHidden">
                                 <input type="text" name="confirmText" aria-describedby="textConfirm">
                                 <input type="hidden" name="equals" value="<%= list.name %>">
-                                <small id="textConfirm" class="form-text text-muted">
+                                <small class="textConfirm" class="form-text text-muted">
                                 Type Listname To Confirm
                                 </small>
                             </form>
-                            <form class="btn-inline hidden deleteButton" action="/lists/<%= list._id %>/?_method=DELETE" method="POST">
+                            <form class="btn-inline hidden confirmButton" action="/lists/<%= list._id %>/?_method=DELETE" method="POST">
                                 <button class="btn btn-danger btn-sm confirmDelete" >Confirm</button>
                             </form>
                         </div>

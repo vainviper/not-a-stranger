@@ -1,24 +1,56 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <h1 class="display-4"><%= list.name %></h1>
-    <a class="btn btn-success btn-sm new-stranger-button" href="/lists/<%= list._id %>/strangers/new">Create Stranger</a>
-    <table class="table sortable">
-        <tr>
-            <th>Name</th>
-            <th>Race</th>
-            <th>Age</th>
-            <th>Occupation</th>
-        </tr>
-        <% stranger.forEach(function(stranger){ %>
+<div class="background"></div>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="listHeader"><%= list.name %></h1>
+        <h4 class="subListHeader">In the year of <%= list.currentAge %></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-dark btn-sm submitButton" style="margin: 0 -5px 10px 0;" href="/lists/<%= list._id %>/strangers/new">Create Stranger</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table sortable">
             <tr>
-                <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
-                <td><%= stranger.race %></td>
-                <td><%= list.currentAge - stranger.born %></td>
-                <td><%= stranger.occupation %></td>
+                <th>Name</th>
+                <th>Race</th>
+                <th>Age</th>
+                <th>Occupation</th>
             </tr>
-        <% }) %>
-    </table>
-    <a class="btn btn-sm btn-info left-align-button" href="/lists">Back</a>
+            <% stranger.forEach(function(stranger){ %>
+                <tr>
+                    <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
+                    <td><%= stranger.race %></td>
+                    <td><%= list.currentAge - stranger.born %></td>
+                    <td><%= stranger.occupation %></td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</div>
+<div class="row">        
+    <div class="col-md-12">
+        <form id="formFastStranger" class="form-group-border" action="/lists/<%= list._id %>/strangers" method="POST" autocomplete="off">
+            <h5 class="fastStrangerTitleH5">Fast NPC creation</h5>
+            <label for="firstName">Name</label>
+            <input class="form-control-sm" type="text" name="firstName" required>
+            <label for="firstName">Description</label>
+            <input class="form-control-sm" type="text" name="bio">
+            <input type="hidden" type="text" name="lastName" value=" ">
+            <input type="hidden" name="age" value="0">
+            <input type="hidden" type="number" name="currentAge" value="<%= list.currentAge %>">
+            <button style="display: inline:" class="btn btn-sm btn-dark fastCreateButton">Create NPC</button>
+        </form>
+    </div> 
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-sm btn-dark backButton" style="margin: 10px -5px 10px 0;" href="/lists">Back</a>
+    </div>
+</div>
 
 <% include ../partials/footer %> 

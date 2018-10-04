@@ -52,7 +52,7 @@ select.form-control:focus {
     color: rgb(224, 224, 224);
 }
 
-form div span{
+form div span {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 2px;
     display: block;

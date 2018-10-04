@@ -1,14 +1,21 @@
-const showButton = document.querySelector('.showButton');
-const showedButton = document.querySelector('.confirmForm');
-showButton.addEventListener('click', function() {
-    showedButton.classList.toggle('hidden')
-    compareInput();
-});
-function compareInput () {
-    const form = document.querySelector("#form");
-    form.addEventListener("input", () => {
-        if(form.confirmText.value.toLowerCase() === form.equals.value.toLowerCase()) {
-            document.querySelector('.deleteButton').classList.toggle('hidden');
-        }
+const showButton = document.querySelectorAll('.deleteButton');
+const showedButton = document.querySelectorAll('.confirmForm');
+
+showButton.forEach((button, index) => {
+    button.addEventListener('click', function() {
+    showedButton[index].classList.toggle('hidden')
+    compareInput(index);
     });
-}
+});
+
+function compareInput (index) {
+    let form = document.querySelectorAll(".formHidden");
+    formListening = form[index];
+    formListening.addEventListener("input", () => {
+        if(formListening.confirmText.value.toLowerCase() === formListening.equals.value.toLowerCase()) {
+            let button = document.querySelectorAll('.confirmButton')
+            let confirmBtn = button[index];
+            confirmBtn.classList.toggle('hidden');
+        }
+    })
+};

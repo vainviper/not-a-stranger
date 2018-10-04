@@ -31,70 +31,80 @@
 
 /* MAIN PAGES */
 
-    /* General Appearance */
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 100%;
-            background-image: url('../images/desk_and_pen.jpg');
-            background-size: cover;
-            background-position: center;
-            background-color: black;
-            filter: brightness(0.7) blur(2px);
-            padding: 0;
-            margin: 0;
-            z-index: -1;
-        }
-
-        .bg-stranger {
-            height: 130vh;
-        }
-
+    /* hide/show delete btn */
+    .hidden {
+        display: none;
+    }
 
 /*  GENERAL STYLES*/
+
+    /* Background */
+    body {
+        background-image: url('../images/palmetto.gif');
+        background-repeat: repeat; 
+        font-family: Helvetica, Arial, sans-serif
+    }
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-image: url('../images/desk_and_pen.jpg');
+        background-size: cover;
+        resize: both;
+        background-position: center;
+        filter: brightness(0.7) blur(2px);
+        padding: 0;
+        margin: 0;
+        z-index: -1;
+    }
+
+    .bg-stranger {
+        height: 130vh;
+    }
+
     /* Buttons */
-        .backButton {
-            margin: 15px 7px;
-            text-align: left;
-            background-color: #5c83aa;
-        }
+    .backButton {
+        margin: 15px 7px;
+        text-align: left;
+        background-color: #5c83aa;
+    }
+    .fastCreateButton {
+        margin: 2px 0;
+        padding: 2px 4px;
+        text-align: left;
+        background-color: #aaaa5c;
+        transform: translateY(-2px);
+    }
 
-        .submitButton {
-            margin-left: 5px;
-            margin-bottom: 5px;
-            background-color: #aaaa5c; 
-        }
+    .submitButton {
+        margin-left: 5px;
+        margin-bottom: 5px;
+        background-color: #aaaa5c; 
+    }
 
-        table.sortable tr td a.editButton {
-            background-color: #aaaa5c;
-            font-size: 1rem;
-        }
+    table.sortable tr td a.editButton {
+        background-color: #aaaa5c;
+        font-size: 1rem;
+    }
 
-        table.sortable tr td a.deleteButton {
-            background-color: #aa6e5c;
-            font-size: 1rem;
-        }
+    table.sortable tr td a.deleteButton {
+        background-color: #aa6e5c;
+        font-size: 1rem;
+    }
+    .editButton {
+        background-color: #aaaa5c;
+        font-size: 1rem;
+    }
 
-.centeredDiv {
-    width: 30%;
-    margin: 5vh auto;
-}
-.centeredStrangerDiv {
-    width: 50%;
-    margin: 5vh auto;
-}
-.left-align-button-2 {
-    margin: 5px 5px;
-    text-align: left;
-}
-.new-stranger-button {
-    margin-bottom: 10px;
-}
-.btn-inline {
-    display: inline;
-}
-.hidden {
-    display: none;
-}
+    .deleteButton {
+        background-color: #aa6e5c;
+        font-size: 1rem;
+    }
+
+
+
+
+

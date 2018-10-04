@@ -5,6 +5,13 @@
     color: white;
 }
 
+.subListHeader {
+    font: normal 1.3rem "Nothing You Could Do", cursive;
+    text-align: center;
+    margin: 0 0 5px;
+    color: white;
+}
+
 /* Tables */
 
     table.sortable thead {
@@ -37,9 +44,54 @@
         opacity: 1;
     }
 
+    /* Fast NPC */
+    #formFastStranger label {
+        color: white;
+        font: normal 16px Karam, cursive;
+    }
+    
+    #formFastStranger input {
+        height: calc(1.3125rem + 2px);
+    }
+    
+    .fastStrangerTitleH5 {
+        margin: 10px 0 5px;
+        color: white;
+        font: normal 1.3rem Karam, cursive;
+    }
+
     .cell-width-30 {
         width: 40%
     }
     .cell-width-40 {
         width: 40%
+    }
+
+    /* Show Page */
+    div.infoContainer {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    div.strangerInfo {
+        display: inline;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        padding: 5px;
+    }
+
+    div.strangerInfo h6 {
+        /* display: inline; */
+        font: bold 1.2rem Karam, cursive;
+        color: white;
+        margin-bottom: 2px;
+    }
+
+    div.strangerInfo p {
+        display: inline;
+        font: normal 1.1rem Helvetica, Arial, sans-serif;;
+        color: white;
+        line-height: 1;
     }
