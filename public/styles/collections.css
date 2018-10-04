@@ -1,7 +1,7 @@
 .listHeader {
     font: normal 3rem "Nothing You Could Do", cursive;
     text-align: center;
-    margin: 10px 0 0;
+    margin: 30px 0 10px;
     color: white;
 }
 
@@ -24,24 +24,28 @@
 
     table.sortable tr {
         border-bottom: 1px solid white;
-        vertical-align: center;
     }
 
     table.sortable tr td:not(a){
         color: rgb(201, 201, 201);
-        vertical-align: center;
+        transform: translateY(5px);
     }
 
     table.sortable tr td a {
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: rgb(255, 255, 255);
         opacity: 0.8;
         text-decoration: none;
-        margin-top: 0px;
+        transform: translateY(-5px);
     }
 
     table.sortable tr td a:hover {
         opacity: 1;
+    }
+
+    table td.table-align-right {
+        text-align: right;
+        color: purple;
     }
 
     /* Fast NPC */

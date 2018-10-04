@@ -1,6 +1,7 @@
 /* NAV BAR */
 
     .navbar {
+        background-color: #0c0c0c;
         font-family: "Kalam", cursive;
         box-shadow: 1px 1px 5px rgb(0, 0, 0);
         opacity: 1;
@@ -10,7 +11,7 @@
         margin-bottom: 0px;
     }
     .hoverTextNav {
-        font: normal 1.3rem "Kalam", cursive;
+        font: normal 1.2rem Helvetica, cursive;
         color: rgb(255, 255, 255);
         opacity: 0.8;
         margin-top: 5px;
@@ -38,14 +39,16 @@
 
 /*  GENERAL STYLES*/
 
-    /* Background */
+    /* Backgrounds */
+
     body {
-        background-image: url('../images/palmetto.gif');
+        background-image: url('../images/black_wood.jpg');
         background-repeat: repeat; 
-        font-family: Helvetica, Arial, sans-serif
+        font-family: Helvetica, Arial, sans-serif;
+        z-index: -2;
     }
 
-    .background {
+    .landingBackground {
         position: absolute;
         top: 0;
         left: 0;
@@ -87,12 +90,13 @@
 
     table.sortable tr td a.editButton {
         background-color: #aaaa5c;
-        font-size: 1rem;
+        font-size: 0.8rem;
+        margin-right: 10px;
     }
 
     table.sortable tr td a.deleteButton {
         background-color: #aa6e5c;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     .editButton {
         background-color: #aaaa5c;

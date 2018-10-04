@@ -6,9 +6,9 @@
         <h3 class="listHeader">Collections</h3>
         <table class="table sortable">
             <tr>
-                <th class="cell-width-30">Name</th>
+                <th>Name</th>
                 <th>Year</th>
-                <th class="cell-width-40">Description</th>
+                <th>Description</th>
                 <% if(currentUser.isAdmin) { %>
                     <th>Owner</th>
                 <% } %>
@@ -22,7 +22,7 @@
                     <% if(currentUser.isAdmin) { %>
                         <th><%= list.author.username %></th>
                     <% } %>
-                    <td>
+                    <td class="table-align-right">
                         <a class="btn btn-dark btn-sm editButton" href="/lists/<%= list._id %>/edit">Edit</a>
                         <a class="btn btn-dark btn-sm deleteButton" href="#">Delete</a>
 

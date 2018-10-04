@@ -1,12 +1,12 @@
-/* NAV BAR */
+/* NAV BAR IN LANDING PAGE*/
 
 .navbar {
-    box-shadow: 1px 1px 5px rgb(0, 0, 0);
-    font-family: "Kalam", cursive;
+    background-color: #0c0c0c;
     opacity: 0;
     transform: translateY(-100px);
     animation: navfadein 1s 0.3s forwards;
 }
+
 @keyframes navfadein {
     100% {
         opacity: 1;
@@ -14,9 +14,9 @@
     }
 }
 
-/* LANDING PAGE */
+/* JUMBOTRON IN LANDING PAGE */
 
-.jumbotron {
+div.jumbotron {
     position: relative;
     text-align: center;
     background: rgba(233, 236, 239, 0);
@@ -33,33 +33,33 @@
     }
 }
 
-.animatedTitle {
+div.jumbotron h1.animatedTitle {
     font: normal 56px "Nothing You Could Do", "cursive";
     color: rgb(255, 255, 255);
     opacity: 0.8;
 }
 
-.jumbotron p {
+div.jumbotron p {
     display: inline;
     font: normal 25px "Kalam", "cursive"; 
     opacity: 0.8;
     color: rgb(255, 255, 255);
 }
 
-.jumbotron a {
+div.jumbotron a {
     display: inline;
     font: normal 25px "Kalam", "cursive"; 
     color: rgb(255, 255, 255);
     margin-right: 5px;
 }
 
-.subtTitleHover {
+div.jumbotron a.subtTitleHover {
     opacity: 0.8;
     transition-duration: 100ms;
     transition-delay: 50ms;
     transition-timing-function: ease-in-out;
 }
-.subtTitleHover:hover {
+div.jumbotron a.subtTitleHover:hover {
     text-decoration: none;
     opacity: 1;
     transition-duration: 100ms;
