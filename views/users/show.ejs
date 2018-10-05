@@ -1,48 +1,58 @@
 <% include ../partials/header %>
 
 <div class="container">
-    <div class="centeredDiv" style="margin: 20px auto;">
-        <h5 class="display-4"><%= user.username %></h5>
-        <table class="table">
-            <tr>
-                <th>Email:</th>
-                <td><%= user.email %></td>
-            </tr>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="listHeader"><%= user.username %></h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <table class="table">
+                <tr>
+                    <th>Email:</th>
+                    <td><%= user.email %></td>
+                </tr>
+                <% if(currentUser.isAdmin) { %>
+                <tr>
+                    <th>id:</th>
+                    <td><%= user._id %></td>
+                </tr>
+                <tr>
+                    <th>isAdmin:</th>
+                    <td><%= user.isAdmin %></td>
+                </tr>
+                <% } %>
+            </table>
+
+            <p class="forgot">Forgot or want to reset password? <a href="/forgot">Click here!</a></p>
+
+            <% if (currentUser && user._id.equals(currentUser._id) || currentUser.isAdmin) { %>
+                <a class="btn btn-dark btn-sm editButton" href="/user/<%= user._id %>/edit">Edit</a>
+                <a class="btn btn-danger btn-sm deleteButton" href="#">Delete</a>
+
+                <div class="confirmForm hidden">
+                    <form class="formHidden">
+                        <input class="form-control-sm" type="text" name="confirmText" aria-describedby="textConfirm" autocomplete="off" autofocus>
+                        <small id="textConfirm" class="form-text text-muted">
+                        Type Username To Confirm
+                        </small>
+                        <input type="hidden" name="equals" value="<%= user.username %>">
+                    </form>
+                    <form class="btn-inline hidden confirmButton" action="/user/<%= user._id %>/?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-sm confirmDelete">Confirm</button>
+                    </form>
+                </div>
+            <% } %>  
+            <br>
             <% if(currentUser.isAdmin) { %>
-            <tr>
-                <th>id:</th>
-                <td><%= user._id %></td>
-            </tr>
-            <tr>
-                <th>isAdmin:</th>
-                <td><%= user.isAdmin %></td>
-            </tr>
+                <a class="btn btn-sm btn-info backButton" href="/users" style="margin: 15px 5px 0 0;">Back</a>
+            <% } else { %>
+                <a class="btn btn-sm btn-info backButton" href="/lists">Back To Lists</a>
             <% } %>
-        </table>
-        <% if(currentUser.isAdmin) { %>
-            <a class="btn btn-sm btn-info left-align-button" href="/users">Back</a>
-        <% } else { %>
-            <a class="btn btn-sm btn-info left-align-button" href="/lists">Back To Lists</a>
-        <% } %>
-        <br>
-
-        <% if (currentUser && user._id.equals(currentUser._id) || currentUser.isAdmin) { %>
-            <a class="btn btn-warning btn-sm" href="/user/<%= user._id %>/edit">Edit</a>
-            <a class="btn btn-danger btn-sm showButton" href="#">Delete</a>
-
-            <div class="confirmForm hidden">
-                <form id="form">
-                    <input class="form-control-sm" type="text" name="confirmText" aria-describedby="textConfirm">
-                    <small id="textConfirm" class="form-text text-muted">
-                    Type Username To Confirm
-                    </small>
-                    <input type="hidden" name="equals" value="<%= user.username %>">
-                </form>
-                <form class="btn-inline hidden deleteButton" action="/user/<%= user._id %>/?_method=DELETE" method="POST">
-                    <button class="btn btn-danger btn-sm confirmDelete" >Confirm</button>
-                </form>
-            </div>
-        <% } %>        
+        </div>
+        <div class="col-md-4"></div>
     </div>
 </div>
 

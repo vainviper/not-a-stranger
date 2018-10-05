@@ -1,7 +1,7 @@
 .formHeader {
     font: normal 3rem "Nothing You Could Do", cursive;
     text-align: center;
-    margin: 30px 0 0;
+    margin: 30px 0 15px;
     color: white;
 }
 
@@ -83,5 +83,29 @@ form div span {
 .userQuestion a:hover {
     text-decoration: none;
     color: rgb(45, 219, 250);
+    opacity: 1;
+}
+
+div form small {
+    display: block;
+    color: white;
+}
+
+.forgot {
+    color: white;
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: Karam, cursive;
+    font-size: 1.1rem;
+}
+
+.forgot a {
+    color: white;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.forgot a:hover {
     opacity: 1;
 }

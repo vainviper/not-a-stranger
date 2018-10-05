@@ -1,25 +1,40 @@
 <% include ../partials/header %>
 
 <div class="container">
-    <h1 class="display-4">Users</h1>
-    <a class="btn btn-success btn-sm new-stranger-button" href="#">Create User</a>
-    <table class="table sortable">
-        <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>id</th>
-            <th>isAdmin</th>
-        </tr>
-        <% user.forEach(function(user){ %>
-            <tr>
-                <td><a href="/user/<%= user._id %>"><strong><%= user.username %></strong></a></td>
-                <td> <%= user.email %></td>
-                <td> <%= user._id %></td>
-                <td> <%= user.isAdmin %></td>
-            </tr>
-        <% }) %>
-    </table>
-    <a class="btn btn-sm btn-info left-align-button" href="/lists">Back</a>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="listHeader">Users</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success btn-sm new-stranger-button" href="#" style="margin: 0px -15px 10px;">Create User</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            </div>
+                <table class="table sortable">
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>id</th>
+                        <th>isAdmin</th>
+                    </tr>
+                    <% user.forEach(function(user){ %>
+                        <tr>
+                            <td><a href="/user/<%= user._id %>"><strong><%= user.username %></strong></a></td>
+                            <td> <%= user.email %></td>
+                            <td> <%= user._id %></td>
+                            <td> <%= user.isAdmin %></td>
+                        </tr>
+                    <% }) %>
+                </table>
+            </div>
+        </div>
+            <a class="btn btn-sm btn-info left-align-button" href="/lists">Back</a>      
+    </div>
 </div>
+
 
 <% include ../partials/footer %> 

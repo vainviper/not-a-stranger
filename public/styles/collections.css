@@ -64,13 +64,6 @@
         font: normal 1.3rem Karam, cursive;
     }
 
-    .cell-width-30 {
-        width: 40%
-    }
-    .cell-width-40 {
-        width: 40%
-    }
-
     /* Show Page */
     div.infoContainer {
         margin: 10px 0;

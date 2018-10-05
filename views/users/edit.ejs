@@ -1,18 +1,39 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <div class="centeredStrangerDiv">
-        <h1 class="display-4">Edit <%= user.username %></h1>
-        <form action="/user/<%= user._id %>/?_method=PUT" method="POST">
-            <input class="form-control" type="text" name="user[username]" value="<%= user.username %>">
-            <input class="form-control" type="email" name="user[email]" value="<%= user.email %>">
-            <% if(currentUser.isAdmin) { %>
-            <input class="form-control" type="text" name="user[isAdmin]" value="<%= user.isAdmin %>">
-            <% } %>
-            <button class="btn btn-lg btn-success btn-block correctAlignment">Edit <%= user.usename %></button>
-        </form>
-        <a class="btn btn-sm btn-info left-align-button-2" href="/user/<%= user._id %>/">Back</a>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="formHeader">Edit <%= user.username %></h1>
     </div>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="centeredStrangerDiv">
+            <form action="/user/<%= user._id %>/?_method=PUT" method="POST">
+                <div>
+                    <label for="username">Name</label>
+                    <input class="form-control" type="text" name="user[username]" value="<%= user.username %>">
+                    <span>Edit your username</span>
+                </div>
+                <div>
+                    <label for="name">email</label>
+                    <input class="form-control" type="email" name="user[email]" value="<%= user.email %>">
+                    <span>Edit your email</span>
+                </div>
+                <% if(currentUser.isAdmin) { %>
+                    <div>
+                        <label for="name">isAdmin</label>
+                        <input class="form-control" type="text" name="user[isAdmin]" value="<%= user.isAdmin %>">
+                        <span>Change if user is admin or not (true/false)</span>
+                    </div>
+                <% } %>
+                <button class="btn btn-lg btn-dark btn-block submitButton"style="margin-top: 5px;">Edit <%= user.usename %></button>
+            </form>
+            <a class="btn btn-sm btn-dark backButton" href="/user/<%= user._id %>/">Back</a>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+
 </div> 
 
 <% include ../partials/footer %>
