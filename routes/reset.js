@@ -19,7 +19,18 @@ router.post('/forgot', (req, res, next) => {
             });
         },
         function(token, done) {
-            User.findOne({ email: req.user.email },(err, user) => {
+            let email;
+            if(req.user) {
+                if(req.user.email === req.body.email) {
+                   email = req.user.email; 
+                } else {
+                    req.flash('error', 'Nono user with that email adress exists.');
+                    return res.redirect('/forgot');
+                }  
+            } else {
+                email = req.body.email;
+            }
+            User.findOne({ email: email },(err, user) => {
                 if(!user) {
                     req.flash('error', 'No user with that email adress exists.');
                     return res.redirect('/forgot');
