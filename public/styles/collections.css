@@ -45,7 +45,13 @@
 
     table td.table-align-right {
         text-align: right;
-        color: purple;
+    }
+
+    table.sortable td.tableOverflow {
+        max-width: 200px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     /* Fast NPC */
