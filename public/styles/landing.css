@@ -19,8 +19,8 @@
 div.jumbotron {
     position: relative;
     text-align: center;
+    margin: 20vh auto;
     background: rgba(233, 236, 239, 0);
-    margin-top: 20vh;
     opacity: 0;
     transform: translateY(100px);
     animation: fadein 1s 0.5s forwards;
@@ -32,6 +32,10 @@ div.jumbotron {
         transform: translateY(0);
     }
 }
+
+/* .jumbotron {
+    padding: 0;
+} */
 
 div.jumbotron h1.animatedTitle {
     font: normal 56px "Nothing You Could Do", "cursive";
@@ -65,4 +69,10 @@ div.jumbotron a.subtTitleHover:hover {
     transition-duration: 100ms;
     transition-delay: 50ms;
     transition-timing-function: ease-in-out;
+}
+
+@media (max-width: 400px) {
+    .jumbotron {
+        padding: 0;
+    }
 }

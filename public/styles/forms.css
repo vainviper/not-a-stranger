@@ -109,3 +109,23 @@ div form small {
 .forgot a:hover {
     opacity: 1;
 }
+
+@media (max-width: 400px) {
+    form div label {
+        font: normal 1rem Helvetica, Arial, sans-serif;
+        color: white;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    textarea.form-control,
+    select.form-control {
+        font: normal 1.1rem Helvetica, Arial, sans-serif;
+    }
+
+    .forgot {
+        font: normal 1.1rem Helvetica, Arial, sans-serif;
+    }
+}
