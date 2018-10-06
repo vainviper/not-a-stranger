@@ -1,6 +1,7 @@
 const Stranger  = require('../models/individual'),
-      List      = require('../models/dblist');
-      User      = require('../models/user');
+      List      = require('../models/dblist'),
+      User      = require('../models/user'),
+      Group     = require('../models/group');
 
 module.exports = {
 
@@ -34,6 +35,26 @@ module.exports = {
                     res.redirect('back');
                 } else {
                     if(foundStranger.author.id.equals(req.user._id) || req.user.isAdmin) {
+                        next();
+                    } else {
+                        req.flash("error", "You don't own that item");
+                        res.redirect('back');
+                    }
+                }
+            });
+        } else {
+            req.flash('error', 'You need to be logged in to do that')
+            res.redirect('back');
+        }
+    },
+    checkDbGroupOwnership: function (req, res, next) {
+        if(req.isAuthenticated()) {
+            Group.findById(req.params.group_id, (err, foundGroup) => {
+                if(err || !foundGroup) {
+                    req.flash('error', 'MW GROUP Group could not be found');
+                    res.redirect('back');
+                } else {
+                    if(foundGroup.author.id.equals(req.user._id) || req.user.isAdmin) {
                         next();
                     } else {
                         req.flash("error", "You don't own that item");

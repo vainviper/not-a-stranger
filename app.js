@@ -13,6 +13,7 @@ const   express         = require('express'),
 
 const   listRoutes      = require('./routes/lists'),
         strangerRoutes  = require('./routes/strangers'),
+        groupRoutes     = require('./routes/groups'),
         authRoutes      = require('./routes/index'),
         adminRoutes     = require('./routes/admin'),
         userRoutes      = require('./routes/users'),
@@ -48,6 +49,7 @@ app.use(middleware.currentUser);
 
 app.use(adminRoutes);
 app.use(listRoutes);
+app.use(groupRoutes);
 app.use(strangerRoutes);
 app.use(authRoutes);
 app.use(userRoutes);
@@ -55,7 +57,7 @@ app.use(resetRoutes);
 
 app.listen(process.env.PORT, process.env.IP, () => {
     console.log('Server for Not A Stranger has started');
-});
+}); 
 
 // app.listen(3000, () => {
 //     console.log('Server for Not A Stranger has started');

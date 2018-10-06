@@ -6,6 +6,13 @@
         <h1 class="formHeader"><%= stranger.firstName + " " + stranger.lastName %></h1>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-12">
+        <p style="color: white;"><%= group %></p>
+    </div>
+</div>
+
     <div class="row">
         <div class="col-md-12 infoContainer">
             <div class="row justify-content-center">
@@ -121,7 +128,15 @@
                 <p><%= stranger.equipment %></p>     
             </div>
             <% } %>
+            
+            <% if(group && group.name !== "") { %>
+            <div class="col-sm-6 col-md-4 col-lg-3 strangerInfo">    
+                <h6>Group affiliation</h6>
+                <p><%= group.name %></p>
             </div>
+            <% } %>
+
+        </div>
     </div>
 </div>
 <div class="row">

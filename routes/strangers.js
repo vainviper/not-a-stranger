@@ -2,6 +2,7 @@ const   express     = require('express'),
         router      = express.Router(),
         middleware  = require('../middleware/'),
         Stranger    = require('../models/individual'),
+        Group       = require('../models/group'),
         List        = require('../models/dblist');
 
 // NEW
@@ -11,7 +12,14 @@ router.get("/lists/:id/strangers/new", middleware.isLoggedIn, (req, res) => {
             req.flash('error', 'List not found');
             res.redirect('back');
         } else {
-            res.render('strangers/new', {list: foundList, stranger: null});
+            Group.find({}, (err, foundGroup) => {
+                if(err) {
+                    req.flash('error', 'Group not found');
+                    res.redirect('back'); 
+                } else {
+                   res.render('strangers/new', {list: foundList, stranger: null, group: foundGroup}); 
+                }
+            });
         }
     });
 });
@@ -45,11 +53,14 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
         list = {
             id: req.params.id
         },
+        group = {
+            id: req.body.group
+        },
         newindividual = {firstName: firstName, lastName: lastName, race: race, nation: nation, 
                         meetArea: meetArea, mentality: mentality, height: height, weight: weight, 
                         build: build, eye: eye, hair: hair, socialRank: socialRank, family: family, 
                         skills: skills, equipment: equipment, occupation: occupation, born: born, 
-                        bio: bio, images: images, author: author, list: list};
+                        bio: bio, images: images, author: author, list: list, group: group};
         Stranger.create(newindividual, (err, individual) => {
         if(err) {
             req.flash('error', 'Something went wrong');
@@ -68,15 +79,22 @@ router.get("/lists/:id/strangers/:stranger_id", middleware.isLoggedIn, (req, res
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
-            Stranger.findById(req.params.stranger_id, function(err, foundStranger){
+            Stranger.findById(req.params.stranger_id, (err, foundStranger) => {
                 if(err) {
                     req.flash('error', 'Something went wrong');
                     res.redirect('back');
                 } else {
-                    res.render("strangers/show", {list: foundList, stranger:foundStranger});
-                }
-            });            
-        }
+                    Group.findById(foundStranger.group.id, (err, foundGroup) => {
+                        if(err) {
+                            req.flash('error', 'Something went wrong');
+                            res.redirect('back');
+                        } else {
+                            res.render("strangers/show", {list: foundList, stranger:foundStranger, group: foundGroup});
+                        }
+                    });
+                }  
+            });       
+        }          
     });
 });
 
@@ -92,7 +110,21 @@ router.get("/lists/:id/strangers/:stranger_id/edit", middleware.checkDbItemOwner
                     req.flash('error', 'Something went wrong');
                     res.redirect('back');
                 } else {
-                    res.render("strangers/edit", {list: foundList, stranger: foundStranger});
+                    Group.find({}, (err, foundGroup) => {
+                        if(err) {
+                            req.flash('error', 'Group not found');
+                            res.redirect('back'); 
+                        } else {
+                            Group.findById(foundStranger.group.id, (err, strangerGroup) => {
+                                if(err) {
+                                    req.flash('error', 'Strangers Group not found');
+                                    res.redirect('back'); 
+                                } else {
+                                    res.render("strangers/edit", {list: foundList, stranger: foundStranger, group: foundGroup, strangerGroup: strangerGroup});
+                                }
+                            }); 
+                        }
+                    });
                 }
             });   
         }
@@ -105,7 +137,7 @@ router.put("/lists/:id/strangers/:stranger_id", middleware.checkDbItemOwnership,
     Stranger.findByIdAndUpdate(req.params.stranger_id, req.body.stranger, function(err, updatedStranger) {
         if(err) {
             req.flash('error', 'Something went wrong');
-            res.redirect('lists/' + req.params.id);
+            res.redirect('/lists/' + req.params.id);
         } else {
             req.flash('success', 'Stranger Updated');
             res.redirect("/lists/" + req.params.id + "/strangers/" + req.params.stranger_id);

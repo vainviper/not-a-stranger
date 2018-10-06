@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<div class="background"></div>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="listHeader"><%= group.name %></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-dark btn-sm submitButton" style="margin: 0 0 10px 15px;" href="/lists/<%= list._id %>/groups/new">New Group</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table sortable">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <% group.forEach(function(group){ %>
+                <tr>
+                    <td><a href="/lists/<%= list._id %>/groups/<%= group._id %>"><strong><%= group.name %></strong></a></td>
+                    <td class="tableOverflow"><%= group.desc %></td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-sm btn-dark backButton" style="margin: 10px -5px 10px 0;" href="/lists/<%= list._id %>/">Back</a>
+    </div>
+</div>
+
+<% include ../partials/footer %> 

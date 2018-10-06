@@ -4,7 +4,7 @@
     <div class="col-12">
         <h1 class="formHeader">Create New Stranger For <%= list.name %></h1>
     </div>
-</div>      
+</div>         
 
 <form action="/lists/<%= list._id %>/strangers" method="POST" id="stranger-new" autocomplete="off">
     <div class="row"> 
@@ -100,11 +100,21 @@
                 <h5>Stats and equipment</h5>
                 <div class="form-group-border">
                     <label for="skills">Skills</label>
-                    <textarea class="form-control correctAlignment" rows="7" cols="50" name="skills" form="stranger-new"></textarea>
+                    <textarea class="form-control correctAlignment" rows="6" cols="50" name="skills" form="stranger-new"></textarea>
                     <span>Enter some or all skills here</span>
                     <label for="equipment">Equipment</label>
-                    <textarea class="form-control correctAlignment" rows="8" cols="50" name="equipment" form="stranger-new"></textarea>
+                    <textarea class="form-control correctAlignment" rows="5" cols="50" name="equipment" form="stranger-new"></textarea>
                     <span>Enter some equipment here</span>
+
+                    <label for="group">Group affiliation</label>
+                    <select class="form-control" id="group" name="group">
+                        <option value="">Select group affiliation</option>
+                        <% group.forEach((group) => { %>
+                            <option value="<%= group._id %>"><%= group.name %></option>
+                        <% }) %>
+                    </select>
+                    <span>Select group affiliation here</span>
+
                 </div>
             </div>
         </div>

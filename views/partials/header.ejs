@@ -29,6 +29,7 @@
         <li class="nav-item active">
         <% if(typeof(stranger) !== 'undefined') { %>
           <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/strangers/new">New Stranger <span class="sr-only">(current)</span></a>
+          <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/groups/new">New Group <span class="sr-only">(current)</span></a>
         <% } else {%>
           <a class="nav-link hoverTextNav" href="/lists/new">New Collection <span class="sr-only">(current)</span></a>
         <% } %>

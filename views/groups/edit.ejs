@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="formHeader">Editing <%= group.name %></h1>
+    </div>
+</div>      
+ 
+<form action="/lists/<%= list._id %>/groups/<%= group._id %>/?_method=PUT" method="POST" id="group-edit">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="form-group">
+                <h5>General</h5>
+                <div class="form-group-border">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="group[name]" value="<%= group.name %>" required>
+                    <span>Enter the name here</span>
+                    <label for="desc">Description</label>
+                    <input class="form-control" type="text" name="group[desc]" value="<%= group.desc %>">
+                    <span>Enter the description here</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-lg btn-dark btn-block submitButton">Edit <%= group.name  %></button>
+        </div>
+    </div>   
+</form>
+
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-sm btn-dark backButton" href="/lists/<%= list._id %>/groups/<%= group._id %>">Back</a>
+    </div>
+</div>
+
+<% include ../partials/footer %>

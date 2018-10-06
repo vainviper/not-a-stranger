@@ -33,6 +33,13 @@ const individualSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'List'
         }
+    },
+    group: {
+        id: {
+            type: Schema.Types.ObjectId,
+            ref: 'Group'
+        },
+        name: String
     }
 });
 
