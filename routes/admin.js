@@ -10,6 +10,7 @@ const   express     = require('express'),
 router.get('/lists/all',middleware.isLoggedIn, middleware.isAdmin, (req, res) => {
     List.find({}, (err, foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'ADMIN INDEX LIST Item could not be found');
             res.redirect('back');
         } else {
@@ -22,6 +23,7 @@ router.get('/lists/all',middleware.isLoggedIn, middleware.isAdmin, (req, res) =>
 router.get('/users', middleware.isLoggedIn, middleware.isAdmin, (req, res) => {
     User.find({}, (err, foundUser) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'ADMIN INDEX USER Item could not be found');
             res.redirect('back');
         } else {

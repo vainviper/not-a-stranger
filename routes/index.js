@@ -20,6 +20,7 @@ router.post('/register', (req, res) => {
     }
     User.register(newUser, req.body.password, (err, user) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {

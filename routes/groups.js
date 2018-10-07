@@ -9,6 +9,7 @@ const   express     = require('express'),
 router.get("/lists/:id/groups", middleware.isLoggedIn, (req, res) => {
     List.findById(req.params.id, function(err, foundList){
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
@@ -18,6 +19,7 @@ router.get("/lists/:id/groups", middleware.isLoggedIn, (req, res) => {
                 }).
                 exec((err, foundGroup) => {
                     if(err) {
+                        console.log(err);
                         req.flash('error', 'GROUP SHOW Item could not be found');
                         res.redirect('back');
                     } else {
@@ -32,6 +34,7 @@ router.get("/lists/:id/groups", middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id/groups/new", middleware.isLoggedIn, (req, res) => {
     List.findById(req.params.id, (err, foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'List not found');
             res.redirect('back');
         } else {
@@ -54,6 +57,7 @@ router.post("/lists/:id/groups", middleware.isLoggedIn, (req, res) => {
         newgroup = {name: name, desc: desc, author: author, list: list};
         Group.create(newgroup, (err, group) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
@@ -67,11 +71,13 @@ router.post("/lists/:id/groups", middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id/groups/:group_id", middleware.isLoggedIn, (req, res) => {
     List.findById(req.params.id, (err, foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
             Group.findById(req.params.group_id, function(err, foundGroup){
                 if(err) {
+                    console.log(err);
                     req.flash('error', 'Something went wrong');
                     res.redirect('back');
                 } else {
@@ -86,11 +92,13 @@ router.get("/lists/:id/groups/:group_id", middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id/groups/:group_id/edit", middleware.checkDbGroupOwnership, (req, res) => {
     List.findById(req.params.id, (err, foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');           
         } else {
             Group.findById(req.params.group_id, (err, foundGroup) => {
                 if(err) {
+                    console.log(err);
                     req.flash('error', 'Something went wrong');
                     res.redirect('back');
                 } else {
@@ -104,6 +112,7 @@ router.get("/lists/:id/groups/:group_id/edit", middleware.checkDbGroupOwnership,
 router.put("/lists/:id/groups/:group_id", middleware.checkDbGroupOwnership, (req,res) => {
     Group.findByIdAndUpdate(req.params.group_id, req.body.group, function(err, updatedGroup) {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('lists/' + req.params.id);
         } else {
@@ -116,6 +125,7 @@ router.put("/lists/:id/groups/:group_id", middleware.checkDbGroupOwnership, (req
 router.delete("/lists/:id/groups/:group_id", middleware.checkDbGroupOwnership, (req, res) => {
     Group.findByIdAndDelete(req.params.group_id, function (err, destroyedGroup) {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {

@@ -12,6 +12,7 @@ router.get('/lists',  (req, res) => {
         }).
         exec((err, foundList) => {
             if(err) {
+                console.log(err);
                 req.flash('error', 'LISTS INDEX Item could not be found');
                 res.redirect('back');
             } else {
@@ -37,6 +38,7 @@ router.post('/lists',middleware.isLoggedIn, (req, res) => {
     newList = {name: name, description: description, currentAge: currentAge, author: author};
     List.create(newList, (err, list) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'LIST CREATE Something went wrong');
             res.redirect('back');
         } else {
@@ -50,6 +52,7 @@ router.post('/lists',middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
     List.findById(req.params.id, function(err, foundList){
         if(err) {
+            console.log(err);
             req.flash('error', 'LIST SHOW Something went wrong');
             res.redirect('back');
         } else {
@@ -59,6 +62,7 @@ router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
                 }).
                 exec((err, foundStranger) => {
                     if(err) {
+                        console.log(err);
                         req.flash('error', 'LIST SHOW Item could not be found');
                         res.redirect('back');
                     } else {
@@ -73,6 +77,7 @@ router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id/edit", middleware.checkListItemOwnership, (req, res) => {
     List.findById(req.params.id, (err,foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'LIST EDIT Something went wrong');
             res.redirect('back');
         } else {
@@ -85,6 +90,7 @@ router.get("/lists/:id/edit", middleware.checkListItemOwnership, (req, res) => {
 router.put("/lists/:id", middleware.checkListItemOwnership, (req,res) => {
     List.findByIdAndUpdate(req.params.id, req.body.list, function(err, updatedList) {
         if(err) {
+            console.log(err);
             req.flash('error', 'LIST UPDATE Something went wrong');
             res.redirect('/lists');
         } else {
@@ -97,6 +103,7 @@ router.put("/lists/:id", middleware.checkListItemOwnership, (req,res) => {
 router.delete('/lists/:id', middleware.checkListItemOwnership, (req, res) => {
     List.findByIdAndDelete(req.params.id, (err, deletedList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'LIST DELETE Something went wrong');
             res.redirect('back');
         } else {

@@ -9,11 +9,13 @@ const   express     = require('express'),
 router.get("/lists/:id/strangers/new", middleware.isLoggedIn, (req, res) => {
     List.findById(req.params.id, (err, foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'List not found');
             res.redirect('back');
         } else {
             Group.find({}, (err, foundGroup) => {
                 if(err) {
+                    console.log(err);
                     req.flash('error', 'Group not found');
                     res.redirect('back'); 
                 } else {
@@ -63,6 +65,7 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
                         bio: bio, images: images, author: author, list: list, group: group};
         Stranger.create(newindividual, (err, individual) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
@@ -76,16 +79,19 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
 router.get("/lists/:id/strangers/:stranger_id", middleware.isLoggedIn, (req, res) => {
     List.findById(req.params.id, (err, foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {
             Stranger.findById(req.params.stranger_id, (err, foundStranger) => {
                 if(err) {
+                    console.log(err);
                     req.flash('error', 'Something went wrong');
                     res.redirect('back');
                 } else {
                     Group.findById(foundStranger.group.id, (err, foundGroup) => {
                         if(err) {
+                            console.log(err);
                             req.flash('error', 'Something went wrong');
                             res.redirect('back');
                         } else {
@@ -102,21 +108,25 @@ router.get("/lists/:id/strangers/:stranger_id", middleware.isLoggedIn, (req, res
 router.get("/lists/:id/strangers/:stranger_id/edit", middleware.checkDbItemOwnership, (req, res) => {
     List.findById(req.params.id, (err, foundList) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');           
         } else {
             Stranger.findById(req.params.stranger_id, (err,foundStranger) => {
                 if(err) {
+                    console.log(err);
                     req.flash('error', 'Something went wrong');
                     res.redirect('back');
                 } else {
                     Group.find({}, (err, foundGroup) => {
                         if(err) {
+                            console.log(err);
                             req.flash('error', 'Group not found');
                             res.redirect('back'); 
                         } else {
                             Group.findById(foundStranger.group.id, (err, strangerGroup) => {
                                 if(err) {
+                                    console.log(err);
                                     req.flash('error', 'Strangers Group not found');
                                     res.redirect('back'); 
                                 } else {
@@ -136,6 +146,7 @@ router.put("/lists/:id/strangers/:stranger_id", middleware.checkDbItemOwnership,
     req.body.stranger.born = born;
     Stranger.findByIdAndUpdate(req.params.stranger_id, req.body.stranger, function(err, updatedStranger) {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('/lists/' + req.params.id);
         } else {
@@ -148,6 +159,7 @@ router.put("/lists/:id/strangers/:stranger_id", middleware.checkDbItemOwnership,
 router.delete("/lists/:id/strangers/:stranger_id", middleware.checkDbItemOwnership, (req, res) => {
     Stranger.findByIdAndDelete(req.params.stranger_id, function (err, destroyedStranger) {
         if(err) {
+            console.log(err);
             req.flash('error', 'Something went wrong');
             res.redirect('back');
         } else {

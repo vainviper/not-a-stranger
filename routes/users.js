@@ -10,6 +10,7 @@ const   express     = require('express'),
     router.get('/user/:id', middleware.checkUserOwnership, (req, res) => {
         User.findById(req.params.id, (err, foundUser) => {
           if(err) {
+            console.log(err);
             req.flash('error', 'USER SHOW Something went wrong');
             res.redirect('back');
             } else {
@@ -22,6 +23,7 @@ const   express     = require('express'),
 router.get('/user/:id/edit', middleware.checkUserOwnership, (req, res) => {
     User.findById(req.params.id, (err, foundUser) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'ADMIN EDIT USER Something went wrong');
             res.redirect('back');
         } else {
@@ -34,6 +36,7 @@ router.get('/user/:id/edit', middleware.checkUserOwnership, (req, res) => {
 router.put('/user/:id', middleware.checkUserOwnership, (req, res) => {
     User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'ADMIN UPDATE USER Somethong went wrong');
             res.redirect('back');
         } else {
@@ -47,6 +50,7 @@ router.put('/user/:id', middleware.checkUserOwnership, (req, res) => {
 router.delete('/user/:id', middleware.checkUserOwnership, (req, res) => {
     User.findByIdAndRemove(req.params.id, (err, removedUser) => {
         if(err) {
+            console.log(err);
             req.flash('error', 'ADMIN USER DELETE Something went wrong');
             res.redirect('back');
         } else {
