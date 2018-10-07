@@ -4,17 +4,147 @@
 <div class="row">
     <div class="col-12">
         <h1 class="formHeader"><%= stranger.firstName + " " + stranger.lastName %></h1>
+        <% if(group && group.name !== "") { %>
+            <div style="margin: -15px 0 20px;"> 
+                <h4 class="subListHeader">Group affiliation: <%= group.name %></h4>
+            </div>
+        <% } %>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-12">
-        <p style="color: white;"><%= group %></p>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="showPage">
+            <h5>General</h5>
+            <div class="show-group-border">
+                <% if(stranger.race && stranger.race !== "") { %>    
+                    <h6 class="titleForItem">Race</h6>
+                    <input class="form-control" value="<%= stranger.race %>" disabled>
+                <% } %>
+                <% if(stranger.meetArea && stranger.meetArea !== "") { %>    
+                    <h6 class="titleForItem">First encountered</h6>
+                    <input class="form-control" value="<%= stranger.meetArea %>" disabled>
+                <% } %>
+                <% if(stranger.mentality && stranger.mentality !== "") { %>    
+                    <h6 class="titleForItem">Mentality/Life goal</h6>
+                    <input class="form-control" value="<%= stranger.mentality %>" disabled> 
+                <% } %>
+            </div>
+        </div>
     </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="showPage">
+            <h5>General</h5>
+            <div class="show-group-border">
+                <% if(stranger.race && stranger.race !== "") { %>    
+                    <h6 class="titleForItem">Race</h6>
+                    <input class="form-control" value="<%= stranger.race %>" disabled>
+                <% } %>
+                <% if(stranger.meetArea && stranger.meetArea !== "") { %>    
+                    <h6 class="titleForItem">First encountered</h6>
+                    <input class="form-control" value="<%= stranger.meetArea %>" disabled>
+                <% } %>
+                <% if(stranger.mentality && stranger.mentality !== "") { %>    
+                    <h6 class="titleForItem">Mentality/Life goal</h6>
+                    <input class="form-control" value="<%= stranger.mentality %>" disabled> 
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">    
+        <div class="showPage">
+            <h5>Appearance</h5>
+            <div class="show-group-border">
+                <% if(stranger.height && stranger.height !== 0) { %>    
+                    <h6 class="titleForItem">Height</h6>
+                    <input class="form-control" value="<%= stranger.height %> cm" disabled>
+                <% } %>
+                <% if(stranger.weight && stranger.weight !== 0) { %>    
+                    <h6 class="titleForItem">Weight</h6>
+                    <input class="form-control" value="<%= stranger.weight %> kg" disabled>
+                <% } %>
+                <% if(stranger.born && list.currentAge - stranger.born !== 0) { %>    
+                    <h6 class="titleForItem">Age</h6>
+                    <input class="form-control" value="<%= list.currentAge - stranger.born %>" disabled>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">    
+        <div class="showPage">
+            <h5>Appearance</h5>
+            <div class="show-group-border">
+                <% if(stranger.build && stranger.build !== "") { %>    
+                    <h6 class="titleForItem">Build</h6>
+                    <input class="form-control" value="<%= stranger.build %>" disabled> 
+                <% } %>
+                <% if(stranger.eye && stranger.eye !== "") { %>    
+                    <h6 class="titleForItem">Eye color</h6>
+                    <input class="form-control" value="<%= stranger.eye %>" disabled> 
+                <% } %>
+                <% if(stranger.hair && stranger.hair !== "") { %>    
+                    <h6 class="titleForItem">Hair color</h6>
+                    <input class="form-control" value="<%= stranger.hair %>" disabled> 
+                <% } %>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-    <div class="row">
-        <div class="col-md-12 infoContainer">
+<div class="row">
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="showPage">
+            <div class="show-group-border">
+                <% if(stranger.skills && stranger.skills !== "") { %>    
+                    <h6 class="titleForItem">General info</h6>
+                    <textarea class="form-control correctAlignment" rows="6" cols="50" disabled><%= stranger.bio %></textarea> 
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="showPage">
+            <div class="show-group-border">
+                <% if(stranger.skills && stranger.skills !== "") { %>    
+                    <h6 class="titleForItem">Family</h6>
+                    <textarea class="form-control correctAlignment" rows="6" cols="50" disabled><%= stranger.family %></textarea> 
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="showPage">
+            <div class="show-group-border">
+                <% if(stranger.skills && stranger.skills !== "") { %>    
+                    <h6 class="titleForItem">Skills</h6>
+                    <textarea class="form-control correctAlignment" rows="6" cols="50" disabled><%= stranger.skills %></textarea> 
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="showPage">
+            <div class="show-group-border">
+                <% if(stranger.skills && stranger.skills !== "") { %>    
+                    <h6 class="titleForItem">Equipment</h6>
+                    <textarea class="form-control correctAlignment" rows="6" cols="50" disabled><%= stranger.equipment %></textarea> 
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--    <div class="row">
+        <div class="col-md-2 infoContainer"></div>
+
+        <div class="col-md-8 infoContainer">
             <div class="row justify-content-center">
 
             <% if(stranger.race && stranger.race !== "") { %>
@@ -128,16 +258,11 @@
                 <p><%= stranger.equipment %></p>     
             </div>
             <% } %>
-            
-            <% if(group && group.name !== "") { %>
-            <div class="col-sm-6 col-md-4 col-lg-3 strangerInfo">    
-                <h6>Group affiliation</h6>
-                <p><%= group.name %></p>
-            </div>
-            <% } %>
 
         </div>
-    </div>
+
+        <div class="col-md-2 infoContainer"></div>
+    </div> -->
 </div>
 <div class="row">
     <div class="col-md-12">
