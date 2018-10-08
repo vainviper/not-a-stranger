@@ -144,12 +144,11 @@
     </div>
 </div>
 
-</div>
 <div class="row">
     <div class="col-md-12">
         <% if (currentUser && stranger.author.id.equals(currentUser._id)) { %>
-            <a class="btn btn-dark btn-sm editButton" href="/lists/<%= list._id %>/strangers/<%= stranger._id %>/edit">Edit</a>
-            <a class="btn btn-dark btn-sm deleteButton" href="#">Delete</a>
+            <a class="btn btn-dark btn-sm editButton" href="/lists/<%= list._id %>/strangers/<%= stranger._id %>/edit" style="margin-top: 10px;">Edit</a>
+            <a class="btn btn-dark btn-sm deleteButton" href="#" style="margin-top: 10px;">Delete</a>
 
             <div class="confirmForm hidden">
                 <form class="formHidden">
@@ -168,7 +167,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-sm btn-info backButton" href="/lists/<%= list._id %>/">Back</a>
+        <a class="btn btn-sm btn-info backButton" href="/lists/<%= list._id %>/" style="margin: 10px 0;">Back</a>
     </div>
 </div>
 

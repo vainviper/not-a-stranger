@@ -18,7 +18,7 @@
   <body>
   
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand hoverTextNav" href="/">NOT A STRANGER</a>
+      <a id="brand" class="navbar-brand hoverTextNav" href="/">NOT A STRANGER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,6 +34,7 @@
             <div class="dropdown-menu" aria-labelledby="createDropdown">
               <% if(typeof(stranger) !== 'undefined') { %>
                 <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/strangers/new">New Stranger <span class="sr-only">(current)</span></a>
+                <br>
                 <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/groups/new">New Group <span class="sr-only">(current)</span></a>
               <% } else {%>
                 <a class="nav-link hoverTextNav" href="/lists/new">New Collection <span class="sr-only">(current)</span></a>

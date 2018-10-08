@@ -7,6 +7,12 @@
         opacity: 1;
     }
 
+    #brand.navbar-brand {
+        font-family: "Nothing You Could Do", "cursive";
+        transform: rotate(-2deg);
+        text-decoration: underline;
+    }
+
     #createDropdown {
         color: white;
         margin-left: 10px;
@@ -19,7 +25,8 @@
         font: normal 1.2rem Helvetica, Arial, sans-serif;
         color: rgb(255, 255, 255);
         opacity: 0.8;
-        margin-top: 5px;
+        margin: 0px 5px;
+        text-align: center;
         display: inline-block;
         color: inherit;
         transition-duration: 100ms;
@@ -37,6 +44,9 @@
 
     .dropdown-menu {
         background: black;
+        transition: 300ms;
+        transition-delay: 50ms;
+        transition-timing-function: ease-in;
     }
 
 /* MAIN PAGES */
@@ -110,13 +120,11 @@
     .editButton {
         background-color: #aaaa5c;
         font-size: 1rem;
-        margin-top: 20px;
     }
 
     .deleteButton {
         background-color: #aa6e5c;
         font-size: 1rem;
-        margin-top: 20px;
     }
 
 /* User Pages */
@@ -129,6 +137,16 @@ table td, table th {
 
 .alert-danger {
     border-color: white;
+}
+
+.alert.alert-success {
+    color: #d4edda;
+    background-color: black;
+}
+
+.alert.alert-danger {
+    color: #f8d7da;
+    background-color: black;
 }
 
 

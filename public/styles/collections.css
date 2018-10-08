@@ -65,7 +65,7 @@
     }
     
     .fastStrangerTitleH5 {
-        margin: 10px 0 5px;
+        margin: 5px 0 5px;
         color: white;
         font: normal 1.3rem Karam, cursive;
     }
@@ -118,4 +118,21 @@
         margin: 5px;
         color: rgb(224, 224, 224);
         font: normal 1.1rem Karam, cursive;
+        border-radius: 5px;
     }
+
+    @media (max-width: 400px) {
+        .showPage h6.titleForItem {
+            font: normal 1rem Helvetica, Arial, sans-serif;
+            color: white;
+            margin: 5px 7px;
+        }
+        
+        .showPage input[disabled],
+        .showPage textarea[disabled] {
+            font: normal 1.1rem Helvetica, Arial, sans-serif;
+        }
+
+    }
+
+    
