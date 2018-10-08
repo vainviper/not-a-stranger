@@ -110,11 +110,13 @@
     .editButton {
         background-color: #aaaa5c;
         font-size: 1rem;
+        margin-top: 20px;
     }
 
     .deleteButton {
         background-color: #aa6e5c;
         font-size: 1rem;
+        margin-top: 20px;
     }
 
 /* User Pages */
