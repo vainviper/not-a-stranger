@@ -16,7 +16,11 @@ const groupSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'List'
         }
-    }
+    },
+    members: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Individual'
+    }]
 });
 
 module.exports = mongoose.model("Group", groupSchema);

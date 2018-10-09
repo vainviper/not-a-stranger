@@ -19,12 +19,14 @@
                 <th>Name</th>
                 <th>Race</th>
                 <th>Description</th>
+                <th>Group</th>
             </tr>
             <% stranger.forEach(function(stranger){ %>
                 <tr>
                     <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
                     <td><%= stranger.race %></td>
                     <td class="tableOverflow"><%= stranger.bio %></td>
+                    <td class="tableOverflow"><%= stranger.group.id.name %></td>
                 </tr>
             <% }) %>
         </table>

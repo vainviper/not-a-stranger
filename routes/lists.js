@@ -59,13 +59,14 @@ router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
             Stranger.
                 find({
                     'list.id': req.params.id
-                }).
+                }).populate('group.id').
                 exec((err, foundStranger) => {
                     if(err) {
                         console.log(err);
                         req.flash('error', 'LIST SHOW Item could not be found');
                         res.redirect('back');
                     } else {
+                        console.log(foundStranger);
                         res.render('strangers/strangers', {list:foundList,stranger:foundStranger});
                     }
                 });

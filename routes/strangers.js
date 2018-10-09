@@ -46,8 +46,6 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
         bio = req.body.bio,
         skills = req.body.skills,
         equipment = req.body.equipment,
-
-        images = req.body.images,
         author = {
             id: req.user.id,
             username: req.user.username
@@ -62,7 +60,7 @@ router.post("/lists/:id/strangers", middleware.isLoggedIn, (req, res) => {
                         meetArea: meetArea, mentality: mentality, height: height, weight: weight, 
                         build: build, eye: eye, hair: hair, socialRank: socialRank, family: family, 
                         skills: skills, equipment: equipment, occupation: occupation, born: born, 
-                        bio: bio, images: images, author: author, list: list, group: group};
+                        bio: bio, author: author, list: list, group: group};
         Stranger.create(newindividual, (err, individual) => {
         if(err) {
             console.log(err);
