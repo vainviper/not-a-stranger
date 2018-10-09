@@ -6,7 +6,7 @@
     </div>
 </div>      
  
-<form action="/lists/<%= list._id %>/groups/<%= group._id %>/?_method=PUT" method="POST" id="group-edit">
+<form action="/lists/<%= list._id %>/groups/<%= group._id %>/?_method=PUT" method="POST" id="group_edit">
     <div class="row">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="form-group">
@@ -16,7 +16,7 @@
                     <input class="form-control" type="text" name="group[name]" value="<%= group.name %>" required>
                     <span>Enter the name here</span>
                     <label for="desc">Description</label>
-                    <input class="form-control" type="text" name="group[desc]" value="<%= group.desc %>">
+                    <textarea class="form-control correctAlignment" rows="5" cols="50" name="group[desc]" form="group_edit"><%= group.desc %></textarea>
                     <span>Enter the description here</span>
                 </div>
             </div>

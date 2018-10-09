@@ -17,13 +17,13 @@
         <table class="table sortable">
             <tr>
                 <th>Name</th>
-                <th>Race</th>
+                <th>Occupation</th>
                 <th>Description</th>
             </tr>
             <% stranger.forEach(function(stranger){ %>
                 <tr>
                     <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
-                    <td><%= stranger.race %></td>
+                    <td><%= stranger.occupation %></td>
                     <td class="tableOverflow"><%= stranger.bio %></td>
                 </tr>
             <% }) %>

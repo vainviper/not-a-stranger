@@ -135,4 +135,12 @@
 
     }
 
+    .groupPage textarea[disabled] {
+        background: rgba(0, 0, 0, 0.4);
+        margin: 5px;
+        color: rgb(224, 224, 224);
+        font: normal 1.1rem Karam, cursive;
+        border-radius: 5px;
+    }
+
     
