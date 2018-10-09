@@ -26,7 +26,7 @@
                     <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
                     <td><%= stranger.race %></td>
                     <td class="tableOverflow"><%= stranger.bio %></td>
-                    <td class="tableOverflow"><%= stranger.group.id.name %></td>
+
                 </tr>
             <% }) %>
         </table>
@@ -43,6 +43,7 @@
             <input type="hidden" type="text" name="lastName" value=" ">
             <input type="hidden" name="age" value="0">
             <input type="hidden" type="number" name="currentAge" value="<%= list.currentAge %>">
+            <input type="hidden" type="text" name="group" value="000000000000000000000000">
             <button style="display: inline:" class="btn btn-sm btn-dark fastCreateButton">Create NPC</button>
         </form>
     </div> 
