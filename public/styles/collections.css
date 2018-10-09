@@ -60,9 +60,9 @@
         font: normal 16px Karam, cursive;
     }
     
-    #formFastStranger input {
+    /* #formFastStranger input {
         height: calc(1.3125rem + 2px);
-    }
+    } */
     
     .fastStrangerTitleH5 {
         margin: 5px 0 5px;
