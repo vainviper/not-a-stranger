@@ -13,7 +13,7 @@ router.get("/lists/:id/strangers/new", middleware.isLoggedIn, (req, res) => {
             req.flash('error', 'List not found');
             res.redirect('back');
         } else {
-            Group.find({}, (err, foundGroup) => {
+            Group.find({'list.id': req.params.id}, (err, foundGroup) => {
                 if(err) {
                     console.log(err);
                     req.flash('error', 'Group not found');
@@ -116,7 +116,7 @@ router.get("/lists/:id/strangers/:stranger_id/edit", middleware.checkDbItemOwner
                     req.flash('error', 'Something went wrong');
                     res.redirect('back');
                 } else {
-                    Group.find({}, (err, foundGroup) => {
+                    Group.find({'list.id': req.params.id}, (err, foundGroup) => {
                         if(err) {
                             console.log(err);
                             req.flash('error', 'Group not found');

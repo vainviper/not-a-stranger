@@ -32,16 +32,18 @@
             Create & Inspect
             </a>
             <div class="dropdown-menu" aria-labelledby="createDropdown">
-              <% if(typeof(stranger) !== 'undefined') { %>
+              <% if(typeof(stranger) !== 'undefined' || typeof(group) !== 'undefined') { %>
+                <a class="nav-link hoverTextNav" href="/lists/">View Collections <span class="sr-only">(current)</span></a>
+                <br>
+                <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>">View Strangers <span class="sr-only">(current)</span></a>
+                <br>
+                <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/groups">View Groups <span class="sr-only">(current)</span></a>
+                <div class="dropdown-divider"></div>
                 <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/strangers/new">New Stranger <span class="sr-only">(current)</span></a>
                 <br>
                 <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/groups/new">New Group <span class="sr-only">(current)</span></a>
               <% } else {%>
                 <a class="nav-link hoverTextNav" href="/lists/new">New Collection <span class="sr-only">(current)</span></a>
-              <% } %>
-              <% if(typeof(stranger) !== 'undefined') { %>
-                <div class="dropdown-divider"></div>
-                <a class="nav-link hoverTextNav" href="/lists/<%= list._id %>/groups">View Groups <span class="sr-only">(current)</span></a>
               <% } %>
             </div>
           </li>

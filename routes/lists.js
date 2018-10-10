@@ -4,24 +4,20 @@ const   express     = require('express'),
         List        = require('../models/dblist'),
         Stranger    = require('../models/individual');
 
-// INDEX
+// INDEX - show lists of user
 router.get('/lists',  (req, res) => {
-    List.
-        find({
-            'author.id': req.user.id
-        }).
-        exec((err, foundList) => {
-            if(err) {
-                console.log(err);
-                req.flash('error', 'LISTS INDEX Item could not be found');
-                res.redirect('back');
-            } else {
-                res.render('lists/lists', {list:foundList});
-            }
-        });
+    List.find({'author.id': req.user.id}, (err, foundList) => {
+        if(err) {
+            console.log(err);
+            req.flash('error', 'LISTS INDEX Item could not be found');
+            res.redirect('back');
+        } else {
+            res.render('lists/lists', {list:foundList});
+        }
+    });
 });
 
-//NEW
+//NEW - create new list
 router.get('/lists/new', middleware.isLoggedIn, (req, res) => {
     res.render('lists/new');
 });
@@ -48,19 +44,18 @@ router.post('/lists',middleware.isLoggedIn, (req, res) => {
     });
 });
 
-//SHOW
+// SHOW
 router.get("/lists/:id", middleware.isLoggedIn, (req, res) => {
-    List.findById(req.params.id, function(err, foundList){
+    List.findById(req.params.id, (err, foundList) => {
         if(err) {
             console.log(err);
             req.flash('error', 'LIST SHOW Something went wrong');
             res.redirect('back');
         } else {
             Stranger.
-                find({
-                    'list.id': req.params.id
-                }).populate('group.id').
-                exec((err, foundStranger) => {
+                find({'list.id': req.params.id})
+                    .populate('group.id')
+                    .exec((err, foundStranger) => {
                     if(err) {
                         console.log(err);
                         req.flash('error', 'LIST SHOW Item could not be found');

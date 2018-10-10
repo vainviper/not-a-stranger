@@ -134,14 +134,12 @@
 
                     <label for="group">Group affiliation</label>
                     <select class="form-control" id="group" name="stranger[group.id]">
-                            <% 
-                                let strGrpName;
-                                if(!strangerGroup) { 
+                            <% let strGrpName;
+                            if(!strangerGroup) { 
                                 strGrpName = "";
                             } else {
                                 strGrpName = strangerGroup.name;
-                            } 
-                            %>
+                            } %>
                         <option value="<%= stranger.group.id %>"><%= strGrpName %></option>
                         <option value="000000000000000000000000"></option>
                         <% group.forEach((group) => { %>

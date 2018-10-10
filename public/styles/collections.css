@@ -28,7 +28,7 @@
 
     table.sortable tr td:not(a){
         color: rgb(201, 201, 201);
-        transform: translateY(5px);
+        transform: translateY(2px);
     }
 
     table.sortable tr td a {
@@ -52,6 +52,14 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+    }
+
+    .btn.btn-sm.inlineStrangerEditButton {
+        font-size: 0.8rem;
+        padding: 2px;
+        line-height: 1;
+        background-color: #aaaa5c;
+        transform: translate(5px, -1px);
     }
 
     /* Fast NPC */

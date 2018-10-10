@@ -19,12 +19,23 @@
                 <th>Name</th>
                 <th>Occupation</th>
                 <th>Description</th>
+                <th>Group</th>
             </tr>
             <% stranger.forEach(function(stranger){ %>
                 <tr>
-                    <td><a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>"><strong><%= stranger.firstName + " " + stranger.lastName%></strong></a></td>
+                    <td>
+                        <a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>">
+                            <strong><%= stranger.firstName + " " + stranger.lastName%></strong>
+                        </a>
+                        <a class="btn btn-dark btn-sm inlineStrangerEditButton" href="/lists/<%= list._id %>/strangers/<%= stranger._id %>/edit">E</a>
+                    </td>
                     <td><%= stranger.occupation %></td>
                     <td class="tableOverflow"><%= stranger.bio %></td>
+                    <% if(stranger.group.id === null) { %>
+                        <td class="tableOverflow"></td>
+                    <%} else { %>
+                        <td class="tableOverflow"><a href="/lists/<%= list._id %>/groups/<%= stranger.group.id._id %>"><%= stranger.group.id.name %></a></td>
+                    <% } %>  
                 </tr>
             <% }) %>
         </table>
@@ -47,7 +58,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-sm btn-dark backButton" style="margin: 10px -5px 10px 0;" href="/lists">Back</a>
+        <a class="btn btn-sm btn-dark backButton" style="margin: 10px -5px 10px 0;" href="/lists">Collections</a>
     </div>
 </div>
 
