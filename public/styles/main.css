@@ -49,6 +49,12 @@
         transition-timing-function: ease-in;
     }
 
+    @media print {
+        .navbar {
+            display: none;
+        }
+    }
+
 /* MAIN PAGES */
 
     /* hide/show delete btn */
@@ -85,6 +91,12 @@
 
     .bg-stranger {
         height: 130vh;
+    }
+
+    @media print {
+        body {
+            background: none;
+        }
     }
 
     /* Buttons */
@@ -127,6 +139,11 @@
         font-size: 1rem;
     }
 
+    @media print {
+       .btn {
+           display: none;
+       }
+    }
 /* User Pages */
 
 table td, table th {

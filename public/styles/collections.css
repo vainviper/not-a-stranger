@@ -12,6 +12,15 @@
     color: white;
 }
 
+@media print {
+    .listHeader, .subListHeader {
+        color: black;
+    }
+    .listHeader {
+        margin-bottom: 0;
+    }
+}
+
 /* Tables */
 
     table.sortable thead {
@@ -62,20 +71,36 @@
         transform: translate(5px, -1px);
     }
 
+    @media print {
+        table.sortable thead,
+        table.sortable tr,
+        table.sortable tr td a,
+        table td,
+        table th,
+        table.sortable tr td:not(a) {
+            color: black;
+        }
+        table.sortable thead {
+            background-color: grey;
+        }
+    }
+
     /* Fast NPC */
     #formFastStranger label {
         color: white;
         font: normal 16px Karam, cursive;
     }
     
-    /* #formFastStranger input {
-        height: calc(1.3125rem + 2px);
-    } */
-    
     .fastStrangerTitleH5 {
         margin: 5px 0 5px;
         color: white;
         font: normal 1.3rem Karam, cursive;
+    }
+
+    @media print {
+        #formFastStranger {
+            display: none;
+        }
     }
 
     /* Show Page */

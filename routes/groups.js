@@ -2,6 +2,7 @@ const   express     = require('express'),
         router      = express.Router(),
         middleware  = require('../middleware/'),
         Group    = require('../models/group'),
+        Stranger    = require('../models/individual'),
         List        = require('../models/dblist');
 
 
@@ -77,11 +78,20 @@ router.get("/lists/:id/groups/:group_id", middleware.isLoggedIn, (req, res) => {
         } else {
             Group.findById(req.params.group_id, function(err, foundGroup){
                 if(err) {
-                    console.log(err);
-                    req.flash('error', 'Something went wrong');
-                    res.redirect('back');
+                    
                 } else {
-                    res.render("groups/show", {list: foundList, group:foundGroup});
+                    Stranger.find({
+                        "group.id": req.params.group_id
+                    }).
+                    exec((err, foundStranger) => {
+                        if(err) {
+                            console.log(err);
+                            req.flash('error', 'Something went wrong');
+                            res.redirect('back');  
+                        } else {
+                            res.render("groups/show", {list: foundList, group:foundGroup, stranger: foundStranger});
+                        }
+                    });
                 }
             });            
         }
