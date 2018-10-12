@@ -1,6 +1,7 @@
 var mongoose = require("mongoose"),
 Stranger   = require("./models/individual"),
 User   = require("./models/user"),
+Group   = require("./models/group"),
 List   = require("./models/dblist");
 
 let seed = {
@@ -24,6 +25,15 @@ let seed = {
     },
     deleteUser: function(){
         User.deleteMany({}, (err, removed) => {
+            if(err){
+                return console.log(err);
+            } else {
+                console.log("User Removed")
+            }
+        });
+    },
+    deleteGroup: function(){
+        Group.deleteMany({}, (err, removed) => {
             if(err){
                 return console.log(err);
             } else {

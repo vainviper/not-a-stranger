@@ -3,7 +3,7 @@
 <div class="background"></div>
 <div class="row">
     <div class="col-md-12">
-        <h1 class="listHeader"><%= group.name %></h1>
+        <h1 class="listHeader">Groups</h1>
     </div>
 </div>
 <div class="row">
@@ -27,10 +27,24 @@
         </table>
     </div>
 </div>
+<div class="row" style="margin-top: -17px;">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <td>
+                    <a class="" href="/lists/<%= list._id %>/groups/new">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-sm btn-dark backButton" style="margin: 10px -5px 10px 0;" href="/lists/<%= list._id %>/">To Strangers</a>
+        <a class="btn btn-sm btn-dark backButton" style="margin: 0px -5px 10px 0;" href="/lists/<%= list._id %>/">To Strangers</a>
     </div>
 </div>
 

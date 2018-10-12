@@ -10,18 +10,19 @@
 <div class="row">
     <div class="col-12 col-sm-6 col-md-3 col-lg-3"></div>
     <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="showPage justify-content-center">
-            <div class="show-group-border">   
+        <div class="groupPage justify-content-center">
+            <div>   
                 <h6 class="titleForItem">Description</h6>
-                <textarea class="form-control correctAlignment" rows="6" cols="50" disabled><%= group.desc %></textarea> 
+                <p class=""><%= group.desc %></p> 
+                <!-- <textarea class="form-control correctAlignment" rows="6" cols="50" disabled><%= group.desc %></textarea> -->
             </div>
         </div>
     </div>
 
     <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="showPage justify-content-center">
-            <div class="show-group-border">
-                <h6 style="color: white;" class="titleForItem>">Members</h6>
+        <div class="groupPage justify-content-center">
+            <div>
+                <h6 style="color: white;" class="titleForItem">Members</h6>
                 <% stranger.forEach((stranger) => { %>
                     <p style="color: white;">
                         <a href="/lists/<%= list._id %>/strangers/<%= stranger._id %>">
@@ -36,8 +37,8 @@
 </div>
 
 <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-12 col-sm-6 col-md-3 col-lg-3"></div>
+    <div class="col-12 col-sm-6 col-md-3 col-lg-3">
         <% if (currentUser && group.author.id.equals(currentUser._id)) { %>
             <a class="btn btn-dark btn-sm editButton" href="/lists/<%= list._id %>/groups/<%= group._id %>/edit">Edit</a>
             <a class="btn btn-dark btn-sm deleteButton" href="#">Delete</a>
@@ -57,13 +58,13 @@
         <% } %>   
     </div>      
 </div>
-<div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
+<div class="col-12 col-sm-6 col-md-3 col-lg-3"></div>
 <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
-        <a class="btn btn-sm btn-info backButton" href="/lists/<%= list._id %>/groups/">Back</a>
+    <div class="col-12 col-sm-6 col-md-3 col-lg-3"></div>
+    <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+        <a class="btn btn-sm btn-info backButton" style="margin-left: 0;" href="/lists/<%= list._id %>/groups/">Back</a>
     </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
+    <div class="col-12 col-sm-6 col-md-3 col-lg-3"></div>
 </div>
 
 <script src="/scripts/confirm.js"></script>

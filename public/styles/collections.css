@@ -12,6 +12,10 @@
     color: white;
 }
 
+#adjustPosition {
+    margin-top: -230px;
+}
+
 @media print {
     .listHeader, .subListHeader {
         color: black;
@@ -86,17 +90,43 @@
     }
 
     /* Fast NPC */
-    #formFastStranger label {
+    #pop-up-fast-NPC {
+        z-index: 2;
+        position: relative;
+        top: 5px;
+        left: -5px;
+        width: 20%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 5px 25px;
+        border-radius: 10px;
+    }
+
+    #formFastStranger input[type="text"] {
+        width: 100%;
         color: white;
-        font: normal 16px Karam, cursive;
+        font: normal 1rem Karam, cursive;
     }
     
     .fastStrangerTitleH5 {
+        text-align: left;
         margin: 5px 0 5px;
         color: white;
         font: normal 1.3rem Karam, cursive;
     }
 
+    #formFastStranger span {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        display: block;
+        padding: 0;
+        margin-left: 5px;
+        margin-right: -5px;
+        /* text-align: center; */
+        color: #C0C0C0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+     
     @media print {
         #formFastStranger {
             display: none;
@@ -130,7 +160,7 @@
         color: white;
         line-height: 1;
     }
-/**/
+/* Stranger Show*/
     .showPage h6.titleForItem {
         padding: 0;
         margin: -5px 7px -5px 7px;
@@ -147,6 +177,44 @@
 
     .showPage input[disabled],
     .showPage textarea[disabled] {
+        background: rgba(0, 0, 0, 0.4);
+        margin: 5px;
+        color: rgb(224, 224, 224);
+        font: normal 1.1rem Karam, cursive;
+        border-radius: 5px;
+    }
+/* Group Show*/
+    .groupPage h6.titleForItem {
+        padding: 0;
+        margin: 15px 7px -5px 7px;
+        font: normal 1.2rem Karam, cursive;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .groupPage p,
+    .groupPage a {
+        /* background: rgba(0, 0, 0, 0.4); */
+        margin: 10px 5px;
+        color: rgb(255, 255, 255);
+        font: normal 1.1rem Karam, cursive;
+        border-radius: 5px;
+        text-decoration: none;
+        opacity: 0.8;
+    }
+
+    .groupPage a:hover {
+        opacity: 1;
+    }
+
+    .groupPage .show-group-border {
+        border: 1px solid grey;
+        padding: 5px 15px 5px 5px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .groupPage input[disabled],
+    .groupPage textarea[disabled] {
         background: rgba(0, 0, 0, 0.4);
         margin: 5px;
         color: rgb(224, 224, 224);

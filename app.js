@@ -30,6 +30,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(flash());
 // seed.deleteList();
 // seed.deleteStranger();
+// seed.deleteGroup();
 // seed.deleteUser();
 
 //PASSPORT CONFIGURATION

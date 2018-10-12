@@ -8,7 +8,8 @@
  
 <form action="/lists/<%= list._id %>/groups/<%= group._id %>/?_method=PUT" method="POST" id="group_edit">
     <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <div class="form-group">
                 <h5>General</h5>
                 <div class="form-group-border">
@@ -21,18 +22,23 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <button class="btn btn-lg btn-dark btn-block submitButton">Edit <%= group.name  %></button>
         </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
     </div>   
 </form>
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <a class="btn btn-sm btn-dark backButton" href="/lists/<%= list._id %>/groups/<%= group._id %>">Back</a>
     </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4"></div>
 </div>
 
 <% include ../partials/footer %>
